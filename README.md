@@ -12,6 +12,7 @@
     - Frameworks:
         * React (Prime React e Zustand) 
 
+
 ## Como rodar o projeto
 
     - Ainda em desenvolvimento...
