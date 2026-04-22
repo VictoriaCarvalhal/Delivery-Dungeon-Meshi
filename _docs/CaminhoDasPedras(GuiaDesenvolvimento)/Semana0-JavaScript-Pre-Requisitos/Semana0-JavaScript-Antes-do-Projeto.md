@@ -43,17 +43,7 @@ let quantidade = 0;                         // let porque vai mudar
 
 ### Exercício — Cardápio na mão
 
-Crie um arquivo `dia1.js` e declare uma variável para **cada** campo de um prato do seu cardápio imaginário:
-
-```js
-// Preencha com dados reais do seu restaurante
-const nomeDoPrato    = "";   // nome do prato
-const descricaoCurta = "";   // uma linha de descrição
-const preco          = 0;    // valor em reais (number)
-const disponivel     = true; // boolean
-
-console.log(nomeDoPrato, preco, disponivel);
-```
+Crie um arquivo `dia1.js` e declare uma variável para **cada** campo de um prato do seu cardápio imaginário. Use nomes de pratos temáticos do seu restaurante, preencha os valores e imprima no console com `console.log`.
 
 Execute no terminal:
 ```bash
@@ -97,18 +87,15 @@ A diferença prática para o seu nível: **arrow functions são mais curtas** e 
 
 ### Exercício — Funções do Carrinho
 
-```js
-// Função que imprime um prato formatado
-const exibirPrato = (nome, preco) => {
-  console.log(`🍜 ${nome} — R$ ${preco.toFixed(2)}`);
-};
+Crie um arquivo `dia2.js` e implemente:
 
-// Função que calcula o subtotal de um item
-const calcularSubtotal = (preco, quantidade) => preco * quantidade;
+1. Uma função `exibirPrato(nome, preco)` que imprime o prato formatado com emoji e o preço em reais (use template literals e `.toFixed(2)`).
+2. Uma função `calcularSubtotal(preco, quantidade)` que retorna o valor total do item.
+3. Chame as duas funções com dados reais e confira o resultado no console.
 
-// Teste
-exibirPrato("Ramen da Masmorra", 32.9);
-console.log("Subtotal:", calcularSubtotal(32.9, 3));
+Execute com:
+```bash
+node dia2.js
 ```
 
 ### ✅ Critério de aceite
@@ -142,23 +129,16 @@ Os métodos que **vão aparecer com certeza** no projeto:
 
 ### Exercício — Simular o Carrinho
 
-```js
-let carrinho = ["Ramen da Masmorra", "Gyoza", "Chá Verde"];
+Crie um arquivo `dia3.js` com um array de itens no carrinho e pratique:
 
-// 1. Adicionar um item
-carrinho.push("Mochi");
-console.log("Depois de adicionar:", carrinho);
+1. Adicionar um item ao carrinho.
+2. Remover um item específico usando `.filter()` (sem usar `.splice()` ou `delete`).
+3. Exibir quantos itens estão no carrinho (o número que aparece no ícone do carrinho).
+4. Verificar se um item específico está no carrinho usando `.find()`.
 
-// 2. Remover "Gyoza" do carrinho
-carrinho = carrinho.filter(item => item !== "Gyoza");
-console.log("Depois de remover:", carrinho);
-
-// 3. Quantos itens no carrinho? (badge do ícone)
-console.log("Itens no carrinho:", carrinho.length);
-
-// 4. Existe "Ramen" no carrinho?
-const temRamen = carrinho.find(item => item === "Ramen da Masmorra");
-console.log("Tem ramen?", temRamen);
+Execute com:
+```bash
+node dia3.js
 ```
 
 ### ✅ Critério de aceite
@@ -202,22 +182,14 @@ const itemNoCarrinho = {
 
 ### Exercício — Cardápio como objetos
 
-```js
-// Monte o cardápio com pelo menos 3 pratos
-const cardapio = [
-  { id: 1, nome: "Ramen da Masmorra", descricao: "Caldo rico...", preco: 32.90 },
-  { id: 2, nome: "Gyoza Sombrio",     descricao: "Fritos crocantes...", preco: 18.50 },
-  { id: 3, nome: "Chá do Druida",     descricao: "Ervas místicas...", preco: 9.00 },
-];
+Crie um arquivo `dia4.js` e monte um array `cardapio` com pelo menos 3 pratos, cada um sendo um objeto com `id`, `nome`, `descricao` e `preco`. Em seguida:
 
-// Imprima o nome e preço de cada prato
-cardapio.forEach(prato => {
-  console.log(`${prato.nome}: R$ ${prato.preco.toFixed(2)}`);
-});
+1. Imprima o nome e preço formatado de cada prato usando `.forEach()`.
+2. Use `.find()` para encontrar e exibir um prato pelo seu `id`.
 
-// Encontre o prato com id === 2
-const pratoEncontrado = cardapio.find(p => p.id === 2);
-console.log("Encontrado:", pratoEncontrado.nome);
+Execute com:
+```bash
+node dia4.js
 ```
 
 ### ✅ Critério de aceite
@@ -270,20 +242,15 @@ console.log(itemAtualizado); // { id: 1, nome: "Ramen", quantidade: 3 }
 
 ### Exercício — Atualizar quantidade no carrinho
 
-```js
-let carrinho = [
-  { id: 1, nome: "Ramen da Masmorra", preco: 32.90, quantidade: 1 },
-  { id: 2, nome: "Gyoza Sombrio",     preco: 18.50, quantidade: 2 },
-];
+Crie um arquivo `dia5.js` com um array `carrinho` contendo dois itens (objetos com `id`, `nome`, `preco` e `quantidade`). Em seguida:
 
-// Incrementar a quantidade do item com id === 1
-carrinho = carrinho.map(item =>
-  item.id === 1
-    ? { ...item, quantidade: item.quantidade + 1 }
-    : item
-);
+1. Use spread para adicionar um novo item ao carrinho sem modificar o array original.
+2. Use `.map()` + spread para incrementar em 1 a quantidade de um item específico pelo `id`.
+3. Verifique no console que o item foi atualizado e os demais permanecem iguais.
 
-console.log(carrinho[0].quantidade); // deve ser 2
+Execute com:
+```bash
+node dia5.js
 ```
 
 ### ✅ Critério de aceite
@@ -333,23 +300,9 @@ import CartaoDoCardapio from "./CartaoDoCardapio";
 
 Crie dois arquivos:
 
-**`dados.js`**
-```js
-export const cardapio = [
-  { id: 1, nome: "Ramen da Masmorra", preco: 32.90 },
-  { id: 2, nome: "Gyoza Sombrio",     preco: 18.50 },
-  { id: 3, nome: "Chá do Druida",     preco: 9.00  },
-];
-```
+**`dados.js`** — exporte um array `cardapio` com pelo menos 3 pratos (objetos com `id`, `nome` e `preco`).
 
-**`main.js`**
-```js
-import { cardapio } from "./dados.js";
-
-cardapio.forEach(({ nome, preco }) => {
-  console.log(`${nome}: R$ ${preco.toFixed(2)}`);
-});
-```
+**`main.js`** — importe o `cardapio` de `dados.js` e use `.forEach()` com desestruturação para imprimir o nome e preço formatado de cada prato.
 
 Execute com:
 ```bash
@@ -397,29 +350,14 @@ O `try/catch` captura erros de rede, servidor fora do ar, etc.
 
 ### Exercício — Simular carga do cardápio
 
-```js
-// Simular uma espera de rede com setTimeout
-function buscarCardapio() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve([
-        { id: 1, nome: "Ramen da Masmorra", preco: 32.90 },
-        { id: 2, nome: "Gyoza Sombrio",     preco: 18.50 },
-      ]);
-    }, 1000); // simula 1 segundo de espera
-  });
-}
+Crie um arquivo `dia7.js` e implemente:
 
-async function main() {
-  console.log("Carregando cardápio...");
-  const cardapio = await buscarCardapio();
-  console.log("Cardápio carregado:");
-  cardapio.forEach(({ nome, preco }) => {
-    console.log(`  - ${nome}: R$ ${preco.toFixed(2)}`);
-  });
-}
+1. Uma função `buscarCardapio()` que retorna uma `Promise` e simula 1 segundo de espera de rede com `setTimeout`. Ao resolver, ela deve retornar um array com pelo menos 2 pratos.
+2. Uma função `async main()` que chama `buscarCardapio()` com `await`, exibe uma mensagem antes e depois do carregamento, e imprime cada prato com nome e preço formatado.
 
-main();
+Execute com:
+```bash
+node dia7.js
 ```
 
 ### ✅ Critério de aceite
