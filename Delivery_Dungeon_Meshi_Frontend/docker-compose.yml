@@ -1,0 +1,10 @@
+name: myapp
+
+services: 
+  app:
+    build: .
+    ports:
+      - "5175:5175"
+    volumes:
+      - ./my-app:/app 
+      - /app/node_modules

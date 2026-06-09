@@ -1,0 +1,31 @@
+# Dependências (reinstaladas no build)
+node_modules
+
+# Git
+.git
+.gitignore
+
+# Docker (não precisam estar dentro da imagem)
+dockerfile
+.dockerignore
+
+# Builds locais
+dist
+dist-ssr
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editores/IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+
+# Documentação
+README.md
+
+# Variáveis de ambiente locais
+*.local
