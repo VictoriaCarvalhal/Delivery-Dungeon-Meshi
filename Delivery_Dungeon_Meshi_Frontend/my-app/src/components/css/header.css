@@ -1,0 +1,23 @@
+.header {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 1500px;
+    height: 150px;
+    align-content: center;
+    gap: 30px;
+}
+
+#logo {
+    display: block;
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+button {
+    display: block;
+    align-self: end;
+}
