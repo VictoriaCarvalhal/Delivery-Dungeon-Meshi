@@ -1,51 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ─── Header Container ─────────────────────────────────────────── */
 .header {
-    background-color: white;
+    background: linear-gradient(135deg, #1a1208 0%, #0f0f0f 50%, #1a0a08 100%);
     display: flex;
+    align-items: center;
     justify-content: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     width: 100%;
-    height: 150px;
-    align-content: center;
-    gap: 50px;
+    height: 80px;
+    gap: 40px;
+    border-bottom: 1px solid rgba(200, 169, 110, 0.25);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(200, 169, 110, 0.08);
 }
 
+/* ─── Logo ─────────────────────────────────────────────────────── */
 #logo {
     display: block;
     position: absolute;
-    left: 50px;
+    left: 40px;
     top: 50%;
     transform: translateY(-50%);
-    width: 100px;
-    height: 50px;
+    width: 110px;
+    height: 55px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
 }
 
-button {
-    display: block;
-    align-self: end;
+#logo:hover {
+    filter: brightness(0) saturate(100%) invert(78%) sepia(35%) saturate(600%) hue-rotate(5deg);
+    transform: translateY(-50%) scale(1.06);
 }
 
+/* ─── Nav Buttons ───────────────────────────────────────────────── */
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: #b89a5a;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 8px 4px;
+    position: relative;
+    transition: color 0.3s ease;
+    align-self: center;
+}
+
+.nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #c8a96e, #f0d090);
+    transition: width 0.35s ease;
+    border-radius: 2px;
+}
+
+.nav-btn:hover {
+    color: #f0d090;
+}
+
+.nav-btn:hover::after {
+    width: 100%;
+}
+
+/* ─── Cart / Pagamento ──────────────────────────────────────────── */
 .pagamento {
     display: flex;
     align-items: center;
     position: absolute;
-    right: 50px;
+    right: 40px;
     top: 50%;
-    transform: translatey(-50%);
-    gap: 10px;
+    transform: translateY(-50%);
 }
 
 #carrinho {
-    display: block;
-    width: 50px;
-    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+#carrinho:hover {
+    transform: scale(1.12);
 }
 
 #carrinho img {
-    width: 100%;
-    height: 100%;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
 }
 
+#carrinho:hover img {
+    filter: brightness(0) saturate(100%) invert(78%) sepia(35%) saturate(600%) hue-rotate(5deg);
+}
+
+/* ─── Cart Badge ────────────────────────────────────────────────── */
 #items {
-    display: block;
+    background: linear-gradient(135deg, #c8a96e, #a07840);
+    color: #0f0f0f;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 0 3px;
+    box-shadow: 0 2px 8px rgba(200, 169, 110, 0.45);
+    z-index: 1;
+    line-height: 1;
 }
