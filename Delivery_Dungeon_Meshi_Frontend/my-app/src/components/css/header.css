@@ -6,7 +6,7 @@
     width: 1500px;
     height: 150px;
     align-content: center;
-    gap: 30px;
+    gap: 50px;
 }
 
 #logo {
@@ -20,4 +20,5 @@
 button {
     display: block;
     align-self: end;
+    transform: scale(1);
 }
