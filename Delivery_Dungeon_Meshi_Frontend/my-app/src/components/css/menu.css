@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* ─── Section Container ─────────────────────────────────────────── */
+.menu-section {
+    background-color: #fdf6ed;
+    min-height: 100vh;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* ─── Tavern Wood Side Borders ──────────────────────────────────── */
+.menu-section::before,
+.menu-section::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 22px;
+    background: repeating-linear-gradient(
+        180deg,
+        #3a1c08 0px,
+        #4a2810 18px,
+        #3d2010 36px,
+        #5c3317 54px,
+        #3a1c08 72px
+    );
+    box-shadow: inset -3px 0 6px rgba(0, 0, 0, 0.4);
+    z-index: 999;
+}
+
+.menu-section::before {
+    left: 0;
+    border-right: 2px solid #9c6030;
+    box-shadow: inset -4px 0 8px rgba(0,0,0,0.5), 2px 0 6px rgba(0,0,0,0.3);
+}
+
+.menu-section::after {
+    right: 0;
+    border-left: 2px solid #9c6030;
+    box-shadow: inset 4px 0 8px rgba(0,0,0,0.5), -2px 0 6px rgba(0,0,0,0.3);
+}
+
+/* ─── Title Block ───────────────────────────────────────────────── */
+.menu-title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.menu-ornament {
+    color: #8b1a1a;
+    font-size: 1.6rem;
+    line-height: 1;
+    letter-spacing: 0.3em;
+    user-select: none;
+}
+
+.menu-title-frame {
+    border: 1px solid #8b1a1a;
+    outline: 3px solid #8b1a1a;
+    outline-offset: 5px;
+    padding: 16px 56px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.menu-title-frame h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #3b1a0e;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* ─── Body Text ─────────────────────────────────────────────────── */
+.menu-content {
+    max-width: 720px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.menu-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #3b1a0e;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+.menu-intro::after {
+    content: ' ——';
+    color: #8b1a1a;
+}
+
+.menu-texto {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: #4a2810;
+    line-height: 2;
+    text-align: center;
+    font-style: normal;
+}
+
+.menu-divider {
+    width: 1px;
+    height: 0;
+    border: none;
+}
+
+/* ─── CTA Button ────────────────────────────────────────────────── */
+.menu-cta {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #8b1a1a;
+    text-decoration: none;
+    border: 1px solid #8b1a1a;
+    outline: 2px solid #8b1a1a;
+    outline-offset: 4px;
+    background: transparent;
+    transition: background 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.menu-cta:hover {
+    background: #8b1a1a;
+    color: #fdf6ed;
+}
