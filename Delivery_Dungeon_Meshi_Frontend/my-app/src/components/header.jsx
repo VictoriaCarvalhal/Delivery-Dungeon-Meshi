@@ -1,14 +1,16 @@
 import restaurantLogo from '../assets/restaurantLogo.png'
+import carrinhoDeCompras from '../assets/carrinhoDeCompras.png'
 import './css/header.css'
 
 function Header() {
     return (
         <>
-            <div class="header">
-                <img id="logo" src={restaurantLogo} alt="Logo do site" width="100" height="50" />
+            <div className="header">
+                <img id="logo" src={restaurantLogo} alt="Logo do site" />
                 <button>Home</button>
                 <button>Cardapio</button>
-            </div >
+                <a id="carrinho" href="#"><img src={carrinhoDeCompras} alt="Carrinho de Compras"/></a>
+            </div>
         </>
     );
 
