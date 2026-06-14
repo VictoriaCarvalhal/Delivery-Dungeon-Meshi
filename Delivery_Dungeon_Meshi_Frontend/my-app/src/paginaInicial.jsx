@@ -1,11 +1,11 @@
-import { useState } from 'react';
 import Header from './components/header';
+import Menu from './components/menu';
 
 function PaginaInicial() {
   return (
     <>
       <Header/>
-      <h1>Em manutenção</h1>
+      <Menu/>
     </>
   )
 }
