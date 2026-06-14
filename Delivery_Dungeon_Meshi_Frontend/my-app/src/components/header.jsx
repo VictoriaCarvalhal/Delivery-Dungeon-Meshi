@@ -1,8 +1,10 @@
 import restaurantLogo from '../assets/restaurantLogo.png'
 import carrinhoDeCompras from '../assets/carrinhoDeCompras.png'
+import {useState} from 'react';
 import './css/header.css'
 
-let itemsCarrinho = 0
+
+const [itemsCarrinho, setItemsCarrinho] = useState(0);
 function Header() {
     return (
         <>
