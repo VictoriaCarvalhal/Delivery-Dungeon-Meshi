@@ -4,7 +4,7 @@ import Header from './components/header';
 function PaginaInicial() {
   return (
     <>
-      <Header />
+      <Header/>
       <h1>Em manutenção</h1>
     </>
   )

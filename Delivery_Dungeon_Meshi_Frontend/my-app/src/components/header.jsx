@@ -2,6 +2,7 @@ import restaurantLogo from '../assets/restaurantLogo.png'
 import carrinhoDeCompras from '../assets/carrinhoDeCompras.png'
 import './css/header.css'
 
+let itemsCarrinho = 0
 function Header() {
     return (
         <>
@@ -9,7 +10,10 @@ function Header() {
                 <img id="logo" src={restaurantLogo} alt="Logo do site" />
                 <button>Home</button>
                 <button>Cardapio</button>
-                <a id="carrinho" href="#"><img src={carrinhoDeCompras} alt="Carrinho de Compras"/></a>
+                <div className="pagamento">
+                    <span id = "items">{itemsCarrinho}</span>
+                    <a id="carrinho" href="#"><img src={carrinhoDeCompras} alt="Carrinho de Compras" /></a>
+                </div>
             </div>
         </>
     );
