@@ -1,10 +1,17 @@
 import PratoCard from "../card/pratoCard"
 function CardapioDataView() {
+    const [itemsCarrinho, setItemsCarrinho] = useState(0);
+
     return (
         <>
-        <PratoCard/>
-        <PratoCard/>
-        <PratoCard/>
+            <div>
+                <span>Items No Carrinho: {itemsCarrinho} </span>
+            </div>
+            <div>
+                <PratoCard />
+                <PratoCard />
+                <PratoCard />
+            </div>
         </>
     )
 }

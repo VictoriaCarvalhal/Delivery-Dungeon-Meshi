@@ -1,19 +1,18 @@
 import { useState } from 'react';
-function PratoCard() {
-    const [itemsCarrinho, setItemsCarrinho] = useState(0);
+import { create } from 'zustand'
 
-    function AdicionarItemsNoCarrinho() {
-        setItemsCarrinho(itemsCarrinho + 1);
-    }
+function PratoCard() {
+    const useCarrinho = create((set)=> ({
+        items: 0,
+        adicionarItems: () => set((state) =>{items: state.items + 1})
+    }))
+
     return (
         <>  
             <div>
-                <span>Items No Carrinho: {itemsCarrinho} </span>
-            </div>
-            <div>
                 <span>Comida</span>
                 <span>Algo Comestivel!</span>
-                <button onClick = {AdicionarItemsNoCarrinho}>Adicionar</button>
+                <button onClick = {useCarrinho.adicionarItemsNoCarrinho}>Adicionar</button>
             </div>
         </>
     )
