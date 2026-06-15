@@ -1,4 +1,4 @@
-import Header from '../components/header';
+import Header from '../components/layout/header';
 import Cardapio from '../components/cardapio';
 
 function PaginaCardapio() {
