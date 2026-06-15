@@ -16,7 +16,7 @@ function Menu(){
             {/* ── Conteúdo ── */}
             <div className="menu-content">
                 <p className="menu-intro">
-                    Delivery Dungeon Meshi. Isto é, "para comer", ou "ser comido"
+                    Delivery Dungeon Meshi. Um site inspirado no famoso manga do mesmo nome! 
                 </p>
 
                 <p className="menu-texto">
