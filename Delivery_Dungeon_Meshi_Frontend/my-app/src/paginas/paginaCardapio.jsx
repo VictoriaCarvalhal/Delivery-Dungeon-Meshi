@@ -1,0 +1,13 @@
+import Header from '../components/header';
+import Cardapio from '../components/cardapio';
+
+function PaginaCardapio() {
+  return (
+    <>
+      <Header/>
+      <Cardapio/>
+    </>
+  )
+}
+
+export default PaginaCardapio;

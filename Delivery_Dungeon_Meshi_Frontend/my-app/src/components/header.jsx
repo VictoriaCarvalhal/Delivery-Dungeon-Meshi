@@ -1,17 +1,19 @@
 import restaurantLogo from '../assets/restaurantLogo.png'
 import carrinhoDeCompras from '../assets/carrinhoDeCompras.png'
 import { useState } from 'react';
-import './css/header.css'
+import './css/header.css';
+import { useNavigate } from "react-router-dom";
 
 function Header() {
     const [itemsCarrinho, setItemsCarrinho] = useState(0);
+    let navigate = useNavigate();
 
     return (
         <>
             <div className="header">
                 <img id="logo" src={restaurantLogo} alt="Logo do site" />
 
-                <button className="nav-btn">Home</button>
+                <button className="nav-btn" onClick={() => navigate("/")}>Home</button>
                 <button className="nav-btn">Cardápio</button>
 
                 <div className="pagamento">

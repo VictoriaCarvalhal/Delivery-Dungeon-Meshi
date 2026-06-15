@@ -1,6 +1,7 @@
-import './css/menu.css'
+import './css/menu.css';
+import { Link } from 'react-router-dom'
 
-function Menu(){
+function Menu() {
     return (
         <div className="menu-section">
 
@@ -16,7 +17,7 @@ function Menu(){
             {/* ── Conteúdo ── */}
             <div className="menu-content">
                 <p className="menu-intro">
-                    Delivery Dungeon Meshi. Um site inspirado no famoso manga do mesmo nome! 
+                    Delivery Dungeon Meshi. Um site inspirado no famoso manga do mesmo nome!
                 </p>
 
                 <p className="menu-texto">
@@ -33,8 +34,7 @@ function Menu(){
                     diam. Donec at venenatis nisi. Aliquam in sagittis lectus. Phasellus eget accumsan erat.
                     Praesent a est velit.
                 </p>
-
-                <a className="menu-cta" href="#">Peça agora!</a>
+                <Link className="menu-cta" to="/cardapio">Peça agora!</Link>
             </div>
 
         </div>
