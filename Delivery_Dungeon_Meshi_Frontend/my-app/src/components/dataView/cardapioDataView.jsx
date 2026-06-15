@@ -1,6 +1,11 @@
+import { useState } from 'react';
+import { create } from 'zustand';
 import PratoCard from "../card/pratoCard"
 function CardapioDataView() {
-    const [itemsCarrinho, setItemsCarrinho] = useState(0);
+    const useCarrinho = create((set) => ({
+        items: 0,
+        adicionarItems: () => set((state) => { items: state.items + 1 })
+    }))
 
     return (
         <>

@@ -1,11 +1,6 @@
-import { useState } from 'react';
-import { create } from 'zustand'
+
 
 function PratoCard() {
-    const useCarrinho = create((set)=> ({
-        items: 0,
-        adicionarItems: () => set((state) =>{items: state.items + 1})
-    }))
 
     return (
         <>  
