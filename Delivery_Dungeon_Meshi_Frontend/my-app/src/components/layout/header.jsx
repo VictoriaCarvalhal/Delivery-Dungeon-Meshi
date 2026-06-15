@@ -1,7 +1,7 @@
-import restaurantLogo from '../assets/restaurantLogo.png'
-import carrinhoDeCompras from '../assets/carrinhoDeCompras.png'
+import restaurantLogo from '../../assets/restaurantLogo.png'
+import carrinhoDeCompras from '../../assets/carrinhoDeCompras.png'
 import { useState } from 'react';
-import './css/header.css';
+import './header.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 

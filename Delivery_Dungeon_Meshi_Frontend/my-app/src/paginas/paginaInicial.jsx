@@ -1,5 +1,5 @@
 import Header from '../components/layout/header';
-import Menu from '../components/menu';
+import Menu from '../components/sections/menu';
 
 function PaginaInicial() {
   return (
