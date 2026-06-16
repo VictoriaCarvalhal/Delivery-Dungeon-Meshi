@@ -1,16 +1,12 @@
-import { create } from 'zustand';
-import useCarrinho from '../dataView/cardapioDataView'
 
-function PratoCard() {
-    function adicionarItemsNoCarrinho() {
-        return useCarrinho((state) => state.adicionarItems);
-    }
+
+function PratoCard({name,desc,onClick}) {
     return (
         <>
             <div>
-                <span>Comida</span>
-                <span>Algo Comestivel</span>
-                <button onClick={adicionarItemsNoCarrinho}>Adicionar</button>
+                <span>{name}</span>
+                <span>{desc}</span>
+                <button onClick={onClick}>Adicionar</button>
             </div>
         </>
     )

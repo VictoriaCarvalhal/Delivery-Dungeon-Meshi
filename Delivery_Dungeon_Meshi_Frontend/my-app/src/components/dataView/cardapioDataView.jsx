@@ -1,22 +1,31 @@
 import { useState } from 'react';
-import { create } from 'zustand';
 import PratoCard from "../card/pratoCard"
 function CardapioDataView() {
-    const useCarrinho = create((set) => ({
-        items: 0,
-        adicionarItems: () => set((state) => { items: state.items + 1 })
-    }))
+    const [items,setItems] = useState(0);
+    const pratos = [
+        { name: "Roast Basilisk", desc:"A dish made by Senshi", id:1 },
+        { name: "Mandrake and Basilisk Omelet", desc: "A dish made by Senshi", id: 2 },
+        { name: "Living Armor Casserole", desc: "A dish made by Senshi", id: 3 },
+    ];
 
-    const itemsAtuais = useCarrinho((state) => state.items)
+    function adicionarItems(){
+        setItems(items + 1);
+    }
+
     return (
         <>
             <div>
-                <span>Items No Carrinho:{itemsAtuais}</span>
+                <span>Items No Carrinho:{items}</span>
             </div>
             <div>
-                <PratoCard />
-                <PratoCard />
-                <PratoCard />
+                {pratos.map((prato) =>(
+                    <PratoCard
+                        key={prato.id}
+                        name={prato.name}
+                        desc={prato.desc}
+                        onClick={adicionarItems}
+                    />
+                ))}
             </div>
         </>
     )
