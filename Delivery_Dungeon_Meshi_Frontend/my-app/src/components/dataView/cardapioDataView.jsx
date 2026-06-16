@@ -1,5 +1,5 @@
 import PratoCard from "../card/pratoCard"
-function CardapioDataView(onClick) {
+function CardapioDataView({onClick}) {
     const pratos = [
         { name: "Roast Basilisk", desc:"A dish made by Senshi", id:1 },
         { name: "Mandrake and Basilisk Omelet", desc: "A dish made by Senshi", id: 2 },

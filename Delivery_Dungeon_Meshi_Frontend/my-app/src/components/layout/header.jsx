@@ -4,7 +4,7 @@ import './header.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 
-function Header(items) {
+function Header({items}) {
     let navigate = useNavigate();
 
     return (

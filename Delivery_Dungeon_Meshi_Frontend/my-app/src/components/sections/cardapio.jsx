@@ -1,7 +1,7 @@
 import "./css/cardapio.css"
 import CardapioDataView from "../dataView/cardapioDataView"
 
-function Cardapio(onClick) {
+function Cardapio({onClick}) {
     return (
         <>
         <h1>Isso é um cardapio</h1>
