@@ -2,9 +2,18 @@ name: myapp
 
 services: 
   app:
+    image: delivery_dungeon_meshi_imagem
+    container_name: delivery_dungeon_meshi_container
     build: .
     ports:
       - "5175:5175"
     volumes:
       - ./my-app:/app 
       - /app/node_modules
+    networks:
+      - rede_do_delivery_dungeon_meshi
+
+networks: 
+  networks:
+  rede_do_delivery_dungeon_meshi:    
+    name: delivery_dungeon_meshi_rede
