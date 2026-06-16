@@ -7,10 +7,11 @@ function CardapioDataView() {
         adicionarItems: () => set((state) => { items: state.items + 1 })
     }))
 
+    const itemsAtuais = useCarrinho((state) => state.items)
     return (
         <>
             <div>
-                <span>Items No Carrinho: {itemsCarrinho} </span>
+                <span>Items No Carrinho:{itemsAtuais}</span>
             </div>
             <div>
                 <PratoCard />
