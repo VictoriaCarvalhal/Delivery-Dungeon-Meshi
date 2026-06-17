@@ -4,13 +4,13 @@ import Cardapio from '../sections/cardapio';
 
 function PaginaCardapio() {
   const [items,setItems] = useState(0)
-  function adicionarItems() {
+  function onAddItem() {
     setItems(items + 1);
   }
   return (
     <>
       <Header items={items}/>
-      <Cardapio onClick={adicionarItems}/>
+      <Cardapio onAddItems={onAddItem}/>
     </>
   )
 }

@@ -4,7 +4,7 @@ import './header.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 
-function Header({items}) {
+function Header({items,onAddItem}) {
     let navigate = useNavigate();
 
     return (
@@ -16,10 +16,10 @@ function Header({items}) {
                 <button className="nav-btn" onClick={() => navigate("/cardapio")}>Cardápio</button>
 
                 <div className="pagamento">
-                    <a id="carrinho" href="#">
+                    <button id="carrinho" onClick={onAddItem}>
                         <span id="items">{items}</span>
                         <img src={carrinhoDeCompras} alt="Carrinho de Compras" />
-                    </a>
+                    </button>
                 </div>
             </div>
         </>
