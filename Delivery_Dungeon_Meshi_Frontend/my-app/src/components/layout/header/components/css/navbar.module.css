@@ -34,3 +34,9 @@
 .navBtn:hover::after {
     width: 100%;
 }
+
+.navContainer {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}

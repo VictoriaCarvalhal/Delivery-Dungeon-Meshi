@@ -5,7 +5,7 @@ function Navbar() {
     const navigate = useNavigate();
     return (
         <>
-            <div>
+            <div className={styles.navContainer}>
                 <button className={styles.navBtn} onClick={() => navigate("/")}>Home</button>
                 <button className={styles.navBtn} onClick={() => navigate("/cardapio")}>Cardápio</button>
             </div>
