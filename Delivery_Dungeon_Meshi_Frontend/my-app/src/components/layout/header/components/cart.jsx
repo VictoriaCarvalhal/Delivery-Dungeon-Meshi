@@ -9,7 +9,7 @@ function Cart(){
     return(
         <>
             <div className={styles.pagamento}>
-                <CarrinhoButton onSmash={() => navigate("/cardapio")} items={items} />
+                <CarrinhoButton onSmash={() => navigate("/carrinho")} items={items} />
             </div>
         </>
     )
