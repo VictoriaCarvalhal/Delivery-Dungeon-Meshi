@@ -2,12 +2,13 @@ import styles from './css/cart.module.css'
 import CarrinhoButton from './carrinhoButton'
 import carrinhoDeCompras from '../../../../assets/carrinhoDeCompras.png'
 import { useItemContext } from '../../../context/itemContext';
+import { useNavigate } from "react-router-dom";
 function Cart(){
-    const { items, onAddItems } = useItemContext();
+    const {items} = useItemContext();
     return(
         <>
             <div className={styles.pagamento}>
-                <CarrinhoButton onClick={onAddItems} items={items} />
+                <CarrinhoButton onSmash={() => navigate("/cardapio")} items={items} />
             </div>
         </>
     )
