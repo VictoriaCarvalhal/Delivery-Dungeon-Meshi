@@ -1,12 +1,12 @@
 import Header from '../layout/header';
 import Cardapio from '../sections/cardapio';
 
-function PaginaCardapio({onPassInfo}) {
+function PaginaCardapio() {
   
   return (
     <>
-      <Header items={items}/>
-      <Cardapio onPassInfo={onPassInfo}/>
+      <Header/>
+      <Cardapio/>
     </>
   )
 }

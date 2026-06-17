@@ -10,7 +10,7 @@ function PaginaInicial() {
   }
   return (
     <>
-      <Header items={items} onAddItem={onAddItem}/>
+      <Header/>
       <Menu/>
     </>
   )

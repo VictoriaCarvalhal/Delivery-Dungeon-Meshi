@@ -4,10 +4,12 @@ import './header.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import {CarrinhoButton} from '../button/carrinhoButton'
+import {ItemContext} from '../context/itemContext'
+import { useContext } from 'react';
 
-function Header({items,onAddItem}) {
+function Header() {
     let navigate = useNavigate();
-
+    const {items, onAddItem} = useContext(ItemContext);
     return (
         <>
             <div className="header">

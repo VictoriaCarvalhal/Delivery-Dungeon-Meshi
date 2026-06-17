@@ -4,7 +4,7 @@ import './index.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PaginaInicial from './components/paginas/paginaInicial'
 import PaginaCardapio from './components/paginas/paginaCardapio'
-import { ItemProvider } from './providerContext/itemContext'
+import { ItemProvider } from './components/context/itemContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
