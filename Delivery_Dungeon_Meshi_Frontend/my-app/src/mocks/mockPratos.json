@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Roast Basilisk",
+    "desc": "A dish made by Senshi",
+    "id": 1,
+    "valor": 25
+  },
+  {
+    "name": "Mandrake and Basilisk Omelet",
+    "desc": "A dish made by Senshi",
+    "id": 2,
+    "valor": 15
+  },
+  {
+    "name": "Living Armor Casserole",
+    "desc": "A dish made by Senshi",
+    "id": 3,
+    "valor": 40
+  }
+]

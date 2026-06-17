@@ -1,5 +1,5 @@
 import PedidoCard from '../card/pedidoCard'
-import { useItemContext } from '../context/itemContext'
+import { useItemContext } from '../../context/itemContext'
 function CarrinhoDataView() {
     const {onRemoveItems} = useItemContext();
     const pedidos = [

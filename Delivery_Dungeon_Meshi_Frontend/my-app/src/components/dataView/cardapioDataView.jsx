@@ -1,5 +1,5 @@
 import PratoCard from "../card/pratoCard"
-import { useItemContext } from '../context/itemContext'
+import { useItemContext } from '../../context/itemContext'
 function CardapioDataView() {
     const {onAddItems} = useItemContext();
     const pratos = [
