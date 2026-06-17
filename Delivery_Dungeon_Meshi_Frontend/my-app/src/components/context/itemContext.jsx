@@ -12,13 +12,15 @@ export function ItemProvider({ children }) {
         setItems(items + 1);
     }
 
+    const decrementarSemNegativos = (quantidade) => Math.max(0, quantidade - 1);
+
     function onRemoveItems(){
-        setItems(items - 1);
+        setItems(decrementarSemNegativos);
     }
     
     return (
         <>
-            <ItemContext.Provider value={{items,onAddItems}}>
+            <ItemContext.Provider value={{items,onAddItems,onRemoveItems}}>
                 {children}
             </ItemContext.Provider>
         </>

@@ -1,7 +1,7 @@
 import PedidoCard from '../card/pedidoCard'
 import { useItemContext } from '../context/itemContext'
 function CarrinhoDataView() {
-    const {onRemoveItems} = useItemsContext();
+    const {onRemoveItems} = useItemContext();
     const pedidos = [
         { 
             name: "Roast Basilisk", 
