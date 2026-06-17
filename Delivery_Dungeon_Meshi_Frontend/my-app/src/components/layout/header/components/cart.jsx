@@ -5,6 +5,7 @@ import { useItemContext } from '../../../context/itemContext';
 import { useNavigate } from "react-router-dom";
 function Cart(){
     const {items} = useItemContext();
+    const navigate = useNavigate();
     return(
         <>
             <div className={styles.pagamento}>
