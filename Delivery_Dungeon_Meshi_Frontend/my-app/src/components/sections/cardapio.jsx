@@ -1,4 +1,4 @@
-import "./css/cardapio.css"
+import styles from "./css/cardapio.module.css"
 import CardapioDataView from "../dataView/cardapioDataView"
 
 function Cardapio() {

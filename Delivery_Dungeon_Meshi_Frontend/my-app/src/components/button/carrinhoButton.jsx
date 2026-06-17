@@ -1,7 +1,11 @@
-function CarrinhoButton({ onClick, children, ...props }) {
+import carrinhoDeCompras from '../../assets/carrinhoDeCompras.png'
+import styles from './carrinhoButton.module.css';
+
+function CarrinhoButton({ onClick, items }) {
     return (
-        <button onClick={onClick} {...props}>
-           {children}
+        <button className={styles.carrinho} onClick={onClick}>
+            <span className={styles.badge}>{items}</span>
+            <img src={carrinhoDeCompras} alt="Carrinho de Compras" />
         </button>
     )
 }

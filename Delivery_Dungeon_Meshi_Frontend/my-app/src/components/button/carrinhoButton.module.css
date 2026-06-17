@@ -1,0 +1,53 @@
+/* ─── Carrinho Button ───────────────────────────────────────────── */
+.carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.carrinho:hover {
+    transform: scale(1.12);
+}
+
+.carrinho img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.carrinho:hover img {
+    filter: brightness(0) saturate(100%) invert(78%) sepia(35%) saturate(600%) hue-rotate(5deg);
+}
+
+/* ─── Cart Badge ────────────────────────────────────────────────── */
+.badge {
+    background: linear-gradient(135deg, #c8a96e, #a07840);
+    color: #0f0f0f;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 0 3px;
+    box-shadow: 0 2px 8px rgba(200, 169, 110, 0.45);
+    z-index: 1;
+    line-height: 1;
+}

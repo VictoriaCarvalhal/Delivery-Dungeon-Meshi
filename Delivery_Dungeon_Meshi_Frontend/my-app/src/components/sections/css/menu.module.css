@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
-
 /* ─── Section Container ─────────────────────────────────────────── */
-.menu-section {
+.menuSection {
     background-color: #fdf6ed;
     min-height: 100vh;
     /* padding lateral = largura das barras + espaço de respiro */
@@ -13,8 +11,8 @@
 }
 
 /* ─── Tavern Wood Side Borders ──────────────────────────────────── */
-.menu-section::before,
-.menu-section::after {
+.menuSection::before,
+.menuSection::after {
     content: '';
     position: fixed;
     top: 0;
@@ -42,13 +40,13 @@
     z-index: 999;
 }
 
-.menu-section::before {
+.menuSection::before {
     left: 0;
     border-right: 2px solid #9c6030;
     box-shadow: inset -6px 0 12px rgba(0,0,0,0.5), 2px 0 6px rgba(0,0,0,0.3);
 }
 
-.menu-section::after {
+.menuSection::after {
     right: 0;
     border-left: 2px solid #9c6030;
     box-shadow: inset 6px 0 12px rgba(0,0,0,0.5), -2px 0 6px rgba(0,0,0,0.3);
@@ -56,25 +54,25 @@
 
 /* ─── Responsive: oculta barras em mobile ───────────────────────── */
 @media (max-width: 480px) {
-    .menu-section::before,
-    .menu-section::after {
+    .menuSection::before,
+    .menuSection::after {
         display: none;
     }
 
-    .menu-section {
+    .menuSection {
         padding: 60px 20px;
     }
 }
 
 /* ─── Title Block ───────────────────────────────────────────────── */
-.menu-title-block {
+.menuTitleBlock {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 60px;
 }
 
-.menu-ornament {
+.menuOrnament {
     color: #8b1a1a;
     font-size: 1.6rem;
     line-height: 1;
@@ -82,7 +80,7 @@
     user-select: none;
 }
 
-.menu-title-frame {
+.menuTitleFrame {
     border: 1px solid #8b1a1a;
     outline: 3px solid #8b1a1a;
     outline-offset: 5px;
@@ -91,7 +89,7 @@
     text-align: center;
 }
 
-.menu-title-frame h1 {
+.menuTitleFrame h1 {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     font-weight: 700;
@@ -103,7 +101,7 @@
 }
 
 /* ─── Body Text ─────────────────────────────────────────────────── */
-.menu-content {
+.menuContent {
     max-width: 720px;
     width: 100%;
     display: flex;
@@ -112,7 +110,7 @@
     gap: 32px;
 }
 
-.menu-intro {
+.menuIntro {
     font-family: 'Playfair Display', serif;
     font-size: 1.05rem;
     font-weight: 600;
@@ -121,12 +119,12 @@
     letter-spacing: 0.02em;
 }
 
-.menu-intro::after {
+.menuIntro::after {
     content: ' ——';
     color: #8b1a1a;
 }
 
-.menu-texto {
+.menuTexto {
     font-family: 'EB Garamond', serif;
     font-size: 1.1rem;
     color: #4a2810;
@@ -135,14 +133,14 @@
     font-style: normal;
 }
 
-.menu-divider {
+.menuDivider {
     width: 1px;
     height: 0;
     border: none;
 }
 
 /* ─── CTA Button ────────────────────────────────────────────────── */
-.menu-cta {
+.menuCta {
     display: inline-block;
     margin-top: 16px;
     padding: 12px 40px;
@@ -160,7 +158,7 @@
     text-transform: uppercase;
 }
 
-.menu-cta:hover {
+.menuCta:hover {
     background: #8b1a1a;
     color: #fdf6ed;
 }
