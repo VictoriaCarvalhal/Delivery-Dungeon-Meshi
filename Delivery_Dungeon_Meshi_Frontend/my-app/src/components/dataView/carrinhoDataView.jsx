@@ -1,7 +1,7 @@
 import PedidoCard from '../card/pedidoCard'
 import { useItemContext } from '../context/itemContext'
 function CarrinhoDataView() {
-    
+    const {onRemoveItems} = useItemsContext();
     const pedidos = [
         { 
             name: "Roast Basilisk", 
@@ -38,7 +38,7 @@ function CarrinhoDataView() {
                         desc={pedido.desc}
                         quant={pedido.quant}
                         valor={pedido.valor}
-                        onSmash={}
+                        onSmash={onRemoveItems}
                     />
                 ))}
             </div>
