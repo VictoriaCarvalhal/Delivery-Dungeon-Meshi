@@ -9,4 +9,4 @@
     - Acredito que estudar zustand/context vai resolver isso? Espero
 
 # Bugs para resolver
-    - Items no carrinho não persistem entre paginas 
+     - ~~Items no carrinho não persistem entre paginas~~ 

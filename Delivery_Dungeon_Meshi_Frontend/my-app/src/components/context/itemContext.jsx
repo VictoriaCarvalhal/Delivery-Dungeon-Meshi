@@ -12,6 +12,9 @@ export function ItemProvider({ children }) {
         setItems(items + 1);
     }
 
+    function onRemoveItems(){
+        setItems(items - 1);
+    }
     return (
         <>
             <ItemContext.Provider value={{items,onAddItems}}>

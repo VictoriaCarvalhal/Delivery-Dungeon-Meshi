@@ -1,5 +1,4 @@
 
-
 function PratoCard({name,desc,onSmash}) {
     return (
         <>
