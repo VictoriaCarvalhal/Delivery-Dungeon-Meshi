@@ -1,4 +1,4 @@
-function carrinhoButton({onClick,children}) {
+function CarrinhoButton({onClick,children}) {
     return (
         <>
             <button onClick={onClick}>
@@ -8,4 +8,4 @@ function carrinhoButton({onClick,children}) {
     )
 }
 
-export default carrinhoButton
+export default CarrinhoButton

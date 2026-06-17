@@ -3,13 +3,12 @@ import carrinhoDeCompras from '../../assets/carrinhoDeCompras.png'
 import './header.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
-import {CarrinhoButton} from '../button/carrinhoButton'
-import {ItemContext} from '../context/itemContext'
-import { useContext } from 'react';
+import CarrinhoButton from '../button/carrinhoButton'
+import {useItemContext} from '../context/itemContext'
 
 function Header() {
     let navigate = useNavigate();
-    const {items, onAddItem} = useContext(ItemContext);
+    const {items, onAddItem} = useItemContext();
     return (
         <>
             <div className="header">
