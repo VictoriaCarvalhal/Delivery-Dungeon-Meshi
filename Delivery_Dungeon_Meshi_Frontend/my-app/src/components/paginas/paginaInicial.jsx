@@ -1,13 +1,8 @@
 import { useState } from 'react';
-import Header from '../layout/header';
-import Menu from '../sections/menu';
+import Header from '../layout/header/header';
+import Menu from '../sections/sectionMenu';
 
 function PaginaInicial() {
-  const [items,setItems] = useState(0)
-
-  function onAddItem() {
-    setItems(items + 1);
-  }
   return (
     <>
       <Header/>

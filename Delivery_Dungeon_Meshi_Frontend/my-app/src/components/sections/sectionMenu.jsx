@@ -1,7 +1,7 @@
 import styles from './css/menu.module.css';
 import { Link } from 'react-router-dom'
 
-function Menu() {
+function SectionMenu() {
     return (
         <div className={styles.menuSection}>
 
@@ -41,4 +41,4 @@ function Menu() {
     )
 }
 
-export default Menu
+export default SectionMenu

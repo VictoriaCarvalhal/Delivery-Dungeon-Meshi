@@ -1,7 +1,7 @@
 import styles from "./css/cardapio.module.css"
 import CardapioDataView from "../dataView/cardapioDataView"
 
-function Cardapio() {
+function SectionCardapio() {
     return (
         <>
         <h1 className={styles.tituloCardapio}>Cardápio</h1>
@@ -10,4 +10,4 @@ function Cardapio() {
     )
 }
 
-export default Cardapio
+export default SectionCardapio

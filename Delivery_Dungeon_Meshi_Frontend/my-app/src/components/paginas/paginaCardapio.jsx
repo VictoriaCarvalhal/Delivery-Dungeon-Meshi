@@ -1,5 +1,5 @@
-import Header from '../layout/header';
-import Cardapio from '../sections/cardapio';
+import Header from '../layout/header/header';
+import Cardapio from '../sections/sectionCardapio';
 
 function PaginaCardapio() {
   
