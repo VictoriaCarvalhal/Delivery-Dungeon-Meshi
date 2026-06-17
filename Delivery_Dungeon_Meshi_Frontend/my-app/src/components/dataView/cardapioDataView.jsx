@@ -1,4 +1,4 @@
-import {usePratos} from '../hooks/usePratos'
+import {usePratos} from '../../hooks/usePratos'
 import PratoCard from "../card/pratoCard"
 import { useItemContext } from '../../context/itemContext'
 function CardapioDataView() {

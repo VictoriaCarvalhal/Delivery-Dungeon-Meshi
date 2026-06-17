@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MockPratos } from '../mocks/mockPratos.json'
+import MockPratos from '../mocks/mockPratos.json'
 
 export function usePratos() {
     const [pratos, setPratos] = useState([]);
