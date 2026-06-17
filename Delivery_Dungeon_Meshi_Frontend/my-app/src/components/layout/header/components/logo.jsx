@@ -1,5 +1,6 @@
 import restaurantLogo from '../../../../assets/restaurantLogo.png'
 import styles from './css/logo.module.css';
+import { Link } from 'react-router-dom';
 function Logo(){
     return(
         <>
