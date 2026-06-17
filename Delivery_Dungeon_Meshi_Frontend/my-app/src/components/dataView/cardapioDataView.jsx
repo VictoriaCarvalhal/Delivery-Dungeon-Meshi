@@ -1,7 +1,7 @@
 import PratoCard from "../card/pratoCard"
 import { useItemContext } from '../context/itemContext'
 function CardapioDataView() {
-    const {onAddItem} = useItemContext();
+    const {onAddItems} = useItemContext();
     const pratos = [
         { name: "Roast Basilisk", desc:"A dish made by Senshi", id:1 },
         { name: "Mandrake and Basilisk Omelet", desc: "A dish made by Senshi", id: 2 },
@@ -16,7 +16,7 @@ function CardapioDataView() {
                         key={prato.id}
                         name={prato.name}
                         desc={prato.desc}
-                        onClick={onAddItem}
+                        onClick={onAddItems}
                     />
                 ))}
             </div>

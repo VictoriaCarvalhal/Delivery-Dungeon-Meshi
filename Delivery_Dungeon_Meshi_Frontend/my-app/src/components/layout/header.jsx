@@ -8,7 +8,7 @@ import {useItemContext} from '../context/itemContext'
 
 function Header() {
     let navigate = useNavigate();
-    const {items, onAddItem} = useItemContext();
+    const {items, onAddItems} = useItemContext();
     return (
         <>
             <div className="header">
@@ -18,7 +18,7 @@ function Header() {
                 <button className="nav-btn" onClick={() => navigate("/cardapio")}>Cardápio</button>
 
                 <div className="pagamento">
-                    <CarrinhoButton id="carrinho" onClick={onAddItem}>
+                    <CarrinhoButton id="carrinho" onClick={onAddItems}>
                         <span id="items">{items}</span>
                         <img src={carrinhoDeCompras} alt="Carrinho de Compras" />
                     </CarrinhoButton>

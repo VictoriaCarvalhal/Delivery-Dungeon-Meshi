@@ -1,10 +1,8 @@
-function CarrinhoButton({onClick,children}) {
+function CarrinhoButton({ onClick, children, ...props }) {
     return (
-        <>
-            <button onClick={onClick}>
-               {children}
-            </button>
-        </>
+        <button onClick={onClick} {...props}>
+           {children}
+        </button>
     )
 }
 
