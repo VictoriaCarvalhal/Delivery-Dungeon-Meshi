@@ -4,7 +4,7 @@ import CardapioDataView from "../dataView/cardapioDataView"
 function Cardapio() {
     return (
         <>
-        <h1>Isso é um cardapio</h1>
+        <h1 className={styles.tituloCardapio}>Cardápio</h1>
         <CardapioDataView/>
         </>
     )

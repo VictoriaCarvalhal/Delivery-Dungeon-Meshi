@@ -3,8 +3,8 @@ import carrinhoDeCompras from '../../assets/carrinhoDeCompras.png'
 import styles from './header.module.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
-import CarrinhoButton from '../button/carrinhoButton'
-import {useItemContext} from '../context/itemContext'
+import CarrinhoButton from '../../button/carrinhoButton'
+import {useItemContext} from '../../context/itemContext'
 
 function Header() {
     let navigate = useNavigate();

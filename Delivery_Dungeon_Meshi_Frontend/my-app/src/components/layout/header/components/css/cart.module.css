@@ -1,0 +1,9 @@
+/* ─── Cart / Pagamento ──────────────────────────────────────────── */
+.pagamento {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
