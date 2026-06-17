@@ -16,7 +16,7 @@ function CardapioDataView() {
                         key={prato.id}
                         name={prato.name}
                         desc={prato.desc}
-                        onClick={onAddItems}
+                        onSmash={onAddItems}
                     />
                 ))}
             </div>
