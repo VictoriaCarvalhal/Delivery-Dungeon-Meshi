@@ -1,6 +1,6 @@
 import styles from './css/cart.module.css'
-import CarrinhoButton from '../button/carrinhoButton'
-import carrinhoDeCompras from '../../assets/carrinhoDeCompras.png'
+import CarrinhoButton from './carrinhoButton'
+import carrinhoDeCompras from '../../../../assets/carrinhoDeCompras.png'
 function Cart(){
     return(
         <>

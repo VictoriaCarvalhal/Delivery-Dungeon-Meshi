@@ -1,4 +1,4 @@
-import restaurantLogo from '../../assets/restaurantLogo.png'
+import restaurantLogo from '../../../../assets/restaurantLogo.png'
 import styles from './css/logo.module.css';
 function Logo(){
     return(

@@ -1,5 +1,5 @@
-import carrinhoDeCompras from '../../assets/carrinhoDeCompras.png'
-import styles from './carrinhoButton.module.css';
+import carrinhoDeCompras from '../../../../assets/carrinhoDeCompras.png'
+import styles from './css/carrinhoButton.module.css';
 
 function CarrinhoButton({ onClick, items }) {
     return (

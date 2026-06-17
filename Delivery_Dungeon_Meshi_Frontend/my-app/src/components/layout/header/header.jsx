@@ -1,7 +1,7 @@
 import styles from './header.module.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
-import {useItemContext} from '../context/itemContext'
+import {useItemContext} from '../../context/itemContext'
 import Cart from './components/cart'
 import Logo from './components/logo'
 import NavBar from './components/navbar'
