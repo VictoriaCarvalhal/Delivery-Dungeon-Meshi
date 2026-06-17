@@ -1,12 +1,12 @@
 
 
-function PratoCard({name,desc,onAddItem}) {
+function PratoCard({name,desc,onSmash}) {
     return (
         <>
             <div>
                 <span>{name}</span>
                 <span>{desc}</span>
-                <button onClick={onAddItem}>Adicionar</button>
+                <button onClick={onSmash}>Adicionar</button>
             </div>
         </>
     )

@@ -1,5 +1,5 @@
 import PratoCard from "../card/pratoCard"
-function CardapioDataView({onAddItem}) {
+function CardapioDataView({onPassInfo}) {
     const pratos = [
         { name: "Roast Basilisk", desc:"A dish made by Senshi", id:1 },
         { name: "Mandrake and Basilisk Omelet", desc: "A dish made by Senshi", id: 2 },
@@ -15,7 +15,7 @@ function CardapioDataView({onAddItem}) {
                         key={prato.id}
                         name={prato.name}
                         desc={prato.desc}
-                        onClick={onAddItem}
+                        onClick={onPassInfo}
                     />
                 ))}
             </div>

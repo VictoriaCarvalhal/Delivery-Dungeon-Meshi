@@ -3,6 +3,7 @@ import carrinhoDeCompras from '../../assets/carrinhoDeCompras.png'
 import './header.css';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
+import {CarrinhoButton} from '../button/carrinhoButton'
 
 function Header({items,onAddItem}) {
     let navigate = useNavigate();
@@ -16,10 +17,10 @@ function Header({items,onAddItem}) {
                 <button className="nav-btn" onClick={() => navigate("/cardapio")}>Cardápio</button>
 
                 <div className="pagamento">
-                    <button id="carrinho" onClick={onAddItem}>
+                    <CarrinhoButton id="carrinho" onClick={onAddItem}>
                         <span id="items">{items}</span>
                         <img src={carrinhoDeCompras} alt="Carrinho de Compras" />
-                    </button>
+                    </CarrinhoButton>
                 </div>
             </div>
         </>
