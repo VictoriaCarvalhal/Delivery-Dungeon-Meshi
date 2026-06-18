@@ -5,11 +5,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PaginaInicial from './components/paginas/paginaInicial'
 import PaginaCardapio from './components/paginas/paginaCardapio'
 import PaginaCarrinho from './components/paginas/paginaCarrinho'
-import { ItemProvider } from './context/itemContext'
+import { PedidoProvider } from './context/pedidoContext'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ItemProvider>
+    <PedidoProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<PaginaInicial />} />
@@ -17,6 +18,6 @@ createRoot(document.getElementById('root')).render(
           <Route path="/carrinho" element={<PaginaCarrinho />} />
         </Routes>
       </BrowserRouter>
-    </ItemProvider>
+    </PedidoProvider>
   </StrictMode>,
 )

@@ -17,6 +17,7 @@ export function PedidoProvider({ children }) {
     })
     const [comanda, setComanda] = useState([])
     const [conta, setConta] = useState(0.0)
+    const [items, setItems] = useState(0)
     function onAdicionarPedidoNaComanda(Prato) {
         const achar = comanda.find(pedido => pedido.name === Prato.name);
 
@@ -45,6 +46,7 @@ export function PedidoProvider({ children }) {
             setPedido(novoPedido);
             setComanda(prevComanda => [...prevComanda, novoPedido]);
         }
+        setItems(items + 1);
     }
 
     function onRemoverPedidoDaComanda(Prato) {
@@ -67,8 +69,9 @@ export function PedidoProvider({ children }) {
         setConta(novaConta);
     }
 
+
     return (
-        <PedidoContext.Provider value={{ pedido, comanda, conta, onAdicionarPedidoNaComanda, onRemoverPedidoDaComanda, onCalcularConta }}>
+        <PedidoContext.Provider value={{ pedido, comanda, conta, items, onAdicionarPedidoNaComanda, onRemoverPedidoDaComanda, onCalcularConta }}>
             {children}
         </PedidoContext.Provider>
     );
