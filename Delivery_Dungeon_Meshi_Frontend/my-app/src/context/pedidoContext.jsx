@@ -1,5 +1,5 @@
 import {createContext, useContext, useState } from 'react';
-
+import {MockPedidos} from '../mocks/mockPedidos.json'
 const PedidoContext = createContext(); 
 
 export function usePedidoContext(){
@@ -12,24 +12,29 @@ export function PedidoProvider({ children }){
         name: "",
         des: "",
         quant: 0,
-        valor: 0.0,
+        value: 0.0,
     })
-    const [Comanda, setComanda] = useState([])
+    const [comanda, setComanda] = useState([])
 
-    function onChangePedido(newName,newDes,newQuant,newValue,newId){
-        setPedido({
-            id: newId,
-            name: newName,
-            des: newDes,
-            quant: newQuant,
-            valor: newValor
-        });
+    function onAtualizarComanda({ name, des, quant, value }) {
+        
+        const novoPedido = {
+            id: Date.now(),
+            name: name,
+            des: des,
+            quant: quant,
+            value: value
+        };
+    
+        setPedido(novoPedido);
+        
+        setComanda(prevComanda => [...prevComanda, novoPedido]);
     }
 
-    function onAddPedido(Pedido){
-        setComanda( 
-            [ ...comanda, Pedido ]
-        );
-    }
+    return (
+        <PedidoContext.Provider value={{ pedido, comanda, onAtualizarComanda }}>
+            {children}
+        </PedidoContext.Provider>
+    );
 
 }
