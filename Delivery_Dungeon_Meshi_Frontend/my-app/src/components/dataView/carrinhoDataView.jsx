@@ -9,7 +9,6 @@ function CarrinhoDataView() {
             quant: 2,
             valor: 25,
             id: 1 
-
         },
         {
             name: "Mandrake and Basilisk Omelet",
