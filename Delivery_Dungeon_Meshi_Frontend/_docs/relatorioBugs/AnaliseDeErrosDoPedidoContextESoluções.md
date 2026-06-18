@@ -1,4 +1,16 @@
-# Análise v2 — pedidoContext.jsx
+---
+title: Análise de Erros do pedidoContext e Soluções
+tags:
+  - react
+  - context-api
+  - code-review
+  - bugfix
+date: 2026-06-18
+arquivo_analisado: pedidoContext.jsx
+status: resolvido
+---
+
+# Análise v2 — `pedidoContext.jsx`
 
 ## ✅ O que foi corrigido desde a primeira análise
 
@@ -86,8 +98,8 @@ function onCalcularConta() {
 }
 ```
 
-> [!IMPORTANT]
-> Esta é a regra mais fundamental de React Hooks: **eles devem ser chamados sempre na mesma ordem, sempre no topo do componente**. Nunca dentro de `if`, `for`, ou funções internas.
+> [!important] Regra fundamental dos React Hooks
+> Hooks devem ser chamados **sempre na mesma ordem, sempre no topo do componente**. Nunca dentro de `if`, `for`, ou funções internas.
 
 ---
 
@@ -179,6 +191,7 @@ if (novo) { ... }          // ❌ novo AINDA é true aqui
 ### 6. `novaComanda` vazia como fonte do `.map()` (Linhas 43-51, 65-71)
 
 **Problema em `onAdicionarPedidoNaComanda`:**
+
 ```jsx
 const [novaComanda, setNovaComanda] = useState([])  // começa como []
 // ...
@@ -189,6 +202,7 @@ setComanda(novaComanda);  // ❌ novaComanda ainda é [] (setState é assíncron
 ```
 
 **Problema em `onCalcularConta`:**
+
 ```jsx
 const [novaComanda, setNovaComanda] = useState([]);  // começa como []
 setNovaComanda(
@@ -204,6 +218,7 @@ setComanda(novaComanda);  // ❌ novaComanda ainda é []
 ### 7. Mutação direta do estado `conta` e `return` morto (Linhas 68, 74-76)
 
 **Problema 1 — `return` morto (linha 68-69):**
+
 ```jsx
 novaComanda.map((pedido) => {
     return { ...pedido, valueTotal: (pedido.valueUni * pedido.quant) };
@@ -212,6 +227,7 @@ novaComanda.map((pedido) => {
 ```
 
 **Problema 2 — mutação direta (linha 75):**
+
 ```jsx
 comanda.map((pedido) => {
     conta += pedido.valueTotal; // ❌ não se pode fazer += em estado React
@@ -224,21 +240,21 @@ comanda.map((pedido) => {
 
 ## 🟡 Problemas de Boas Práticas (2)
 
-| # | Problema | Linha | Correção |
-|---|---------|-------|----------|
-| 8 | `!=` ao invés de `!==` (comparação não-estrita) | 25, 59 | Usar `!==` sempre |
-| 9 | `.map()` usado para efeito colateral (sem usar o retorno) | 74 | Usar `.reduce()` ou `.forEach()` |
+| \# | Problema                                                    | Linha  | Correção                         |
+| -- | ----------------------------------------------------------- | ------ | -------------------------------- |
+| 8  | `!=` ao invés de `!==` (comparação não-estrita)             | 25, 59 | Usar `!==` sempre                |
+| 9  | `.map()` usado para efeito colateral (sem usar o retorno)   | 74     | Usar `.reduce()` ou `.forEach()` |
 
 ---
 
 ## 📊 Resumo Comparativo
 
-| Categoria | Análise v1 | Análise v2 | Progresso |
-|-----------|-----------|-----------|-----------|
-| 🔴 Críticos | 5 | **3** | -2 ✅ |
-| 🟠 Lógica | 7 | **4** | -3 ✅ |
-| 🟡 Boas Práticas | 5 | **2** | -3 ✅ |
-| **Total** | **17** | **9** | **-8** ✅ |
+| Categoria          | Análise v1 | Análise v2 | Progresso |
+| ------------------ | ---------- | ---------- | --------- |
+| 🔴 Críticos        | 5          | **3**      | -2 ✅      |
+| 🟠 Lógica          | 7          | **4**      | -3 ✅      |
+| 🟡 Boas Práticas   | 5          | **2**      | -3 ✅      |
+| **Total**          | **17**     | **9**      | **-8** ✅  |
 
-> [!TIP]
+> [!tip] Dica principal
 > A maioria dos problemas restantes se resolve com **uma única mudança conceitual**: trocar os `useState` dentro das funções de evento por variáveis locais (`let`/`const`). Isso elimina os itens 1, 5 e 6 de uma vez. As correções completas para `onAdicionarPedidoNaComanda` e `onCalcularConta` estão no item 1 acima — basta substituir as funções inteiras.
