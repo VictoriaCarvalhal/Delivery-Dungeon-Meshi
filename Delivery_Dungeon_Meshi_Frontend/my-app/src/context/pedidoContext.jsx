@@ -16,14 +16,10 @@ export function PedidoProvider({ children }) {
     })
     const [comanda, setComanda] = useState([])
 
-    function onAtualizarComanda({ newName, newDes, newQuant, newValue }) {
+    function onAdicionarPedidoNaComanda({ newName, newDes, newQuant, newValue }) {
         const [novo, setNovo] = useState(true)
         const [achar, setAchar] = useState(undefined)
         const [novaComanda, setNovaComanda] = useState([])
-        // O que eu quero fazer: 
-        // Primeiro checa se ja existe esse valor na lista. 
-        // Para fazer isso eu preciso analisar cada item da lista.
-        // Eu posso fazer isso com um map
         setAchar(comanda.find(comanda => comanda.Pedido.name = newName))
         if (achar != undefined) {
             setNovo(false)
