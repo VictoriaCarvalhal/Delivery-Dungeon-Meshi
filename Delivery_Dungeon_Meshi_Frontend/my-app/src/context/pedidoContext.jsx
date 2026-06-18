@@ -18,64 +18,53 @@ export function PedidoProvider({ children }) {
     const [comanda, setComanda] = useState([])
     const [conta, setConta] = useState(0.0)
     function onAdicionarPedidoNaComanda(Prato) {
-        const [novo, setNovo] = useState(true)
-        const [achar, setAchar] = useState(undefined)
-        const [novaComanda, setNovaComanda] = useState([])
-        setAchar(comanda.find(comanda => comanda.Pedido.name = Prato.name))
-        if (achar != undefined) {
-            setNovo(false)
-        }
-        if (novo) {
+        const achar = comanda.find(pedido => pedido.name === Prato.name);
+
+        if (achar !== undefined) {
+            // prato já existe na comanda — incrementa quantidade
+            setComanda(
+                comanda.map((pedido) => {
+                    if (pedido.name === Prato.name) {
+                        return { ...pedido, quant: pedido.quant + 1 };
+                    }
+                    return pedido;
+                })
+            );
+            alert("Prato adicionado no carrinho");
+        } else {
+            // prato novo — adiciona à comanda
             const novoPedido = {
                 id: Date.now(),
                 name: Prato.name,
                 des: Prato.desc,
                 quant: 1,
                 valueUni: Prato.valor,
-                valueTotal: 0
+                valueTotal: Prato.valor,
             };
 
             setPedido(novoPedido);
-
             setComanda(prevComanda => [...prevComanda, novoPedido]);
         }
-        else {
-            setNovaComanda(
-                novaComanda.map((pedido) => {
-                    if (pedido.name === Prato.name) {
-                        return { ...pedido, quant: (pedido.quant + 1) };
-                    }
-                    return pedido;
-                })
-            );
-            setComanda(novaComanda);
-            alert("Prato adicionado no carrinho");
-        }
-
     }
 
     function onRemoverPedidoDaComanda(Prato) {
         setComanda(
-            comanda.filter(pedido => pedido.id != Prato.id)
+            comanda.filter(pedido => pedido.id !== Prato.id)
         );
         alert("Prato removido do carrinho");
     }
     function onCalcularConta() {
-        const [novaComanda, setNovaComanda] = useState([]);
-        setNovaComanda(
-            novaComanda.map((pedido) => {
-                return { ...pedido, valueTotal: (pedido.valueUni * pedido.quant) };
-                return pedido;
-            })
+        const comandaAtualizada = comanda.map((pedido) => ({
+            ...pedido,
+            valueTotal: pedido.valueUni * pedido.quant,
+        }));
+        setComanda(comandaAtualizada);
+
+        const novaConta = comandaAtualizada.reduce(
+            (total, pedido) => total + pedido.valueTotal,
+            0
         );
-        setComanda(novaComanda);
-        alert("Valores Totais de cada pedido atualizados");
-
-        comanda.map((pedido) => {
-            conta += pedido.valueTotal;
-        })
-
-        alert("Valor da conta do pedido atualizado");
+        setConta(novaConta);
     }
 
     return (
