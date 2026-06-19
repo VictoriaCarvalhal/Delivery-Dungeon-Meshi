@@ -1,11 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 const PedidoContext = createContext();
 
-
-export function usePedidoContext() {
-    return useContext(PedidoContext);
-}
-
 export function PedidoProvider({ children }) {
     const [pedido, setPedido] = useState({
         id: null,
@@ -57,9 +52,24 @@ export function PedidoProvider({ children }) {
     }
 
     function onRemoverPedidoDaComanda(Prato) {
-        setComanda(
-            comanda.filter(pedido => pedido.id !== Prato.id)
-        );
+        const pedidoAtivo = comanda.find(pedido => (pedido.name === Prato.name) && (pedido.quant > 0));
+        if (pedidoAtivo !== undefined){
+            setComanda(
+                comanda.map((pedido) => {
+                    if (pedido.name === Prato.name) {
+                        const novaQuant = pedido.quant - 1;
+                        return { ...pedido, quant: novaQuant, valueTotal: pedido.valueUni * novaQuant };
+                    }
+                    return pedido;
+                })
+            );
+        }
+        else{
+            setComanda(
+                comanda.filter(pedido => pedido.id !== Prato.id)
+            );
+        }
+
         setItems(items - 1);
         alert("Prato removido do carrinho");
     }
