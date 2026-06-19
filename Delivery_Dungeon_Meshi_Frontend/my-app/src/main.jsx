@@ -6,6 +6,7 @@ import PaginaInicial from './components/paginas/paginaInicial'
 import PaginaCardapio from './components/paginas/paginaCardapio'
 import PaginaCarrinho from './components/paginas/paginaCarrinho'
 import { PedidoProvider } from './context/pedidoContext'
+import PaginaConfirmacaoCompra from './components/paginas/paginaConfimacaoCompra'
 
 
 createRoot(document.getElementById('root')).render(
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/" element={<PaginaInicial />} />
           <Route path="/cardapio" element={<PaginaCardapio />} />
           <Route path="/carrinho" element={<PaginaCarrinho />} />
+          <Route path="/confimacaoCompra" element={<PaginaConfirmacaoCompra/>}/>
         </Routes>
       </BrowserRouter>
     </PedidoProvider>

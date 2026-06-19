@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Header from '../layout/header/header';
 import Menu from '../sections/sectionMenu';
 
