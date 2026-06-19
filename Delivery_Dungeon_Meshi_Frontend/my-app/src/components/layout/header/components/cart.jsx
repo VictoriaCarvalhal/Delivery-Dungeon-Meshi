@@ -1,4 +1,3 @@
-import styles from './css/cart.module.css'
 import CarrinhoButton from './carrinhoButton'
 import { usePedidoContext } from "../../../../context/pedidoContext"
 import { useNavigate } from "react-router-dom"
@@ -7,7 +6,7 @@ function Cart(){
     const navigate = useNavigate();
     return(
         <>
-            <div className={styles.pagamento}>
+            <div>
                 <CarrinhoButton onSmash={() => navigate("/carrinho")} items={items} />
             </div>
         </>

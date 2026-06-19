@@ -1,4 +1,3 @@
-import styles from "./css/cardapio.module.css"
 import CarrinhoDataView from "../dataView/carrinhoDataView"
 function SectionCarrinho() {
     return (
