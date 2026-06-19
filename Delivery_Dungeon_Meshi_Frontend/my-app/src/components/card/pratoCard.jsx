@@ -4,7 +4,7 @@ function PratoCard({name,desc,valor,onSmash}) {
         <>
             <div>
                 <span>Nome:{name} Desc: {desc} Valor: {valor}</span>
-                <button onClick={onSmash}>Adicionar</button>
+                <button onClick={() => onSmash({name, desc, valor})}>Adicionar</button>
             </div>
         </>
     )

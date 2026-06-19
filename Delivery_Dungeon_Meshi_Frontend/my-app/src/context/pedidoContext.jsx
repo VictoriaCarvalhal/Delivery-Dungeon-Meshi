@@ -10,7 +10,7 @@ export function PedidoProvider({ children }) {
     const [pedido, setPedido] = useState({
         id: null,
         name: "",
-        des: "",
+        desc: "",
         quant: 0,
         valueUni: 0.0,
         valueTotal: 0.0,
@@ -31,13 +31,12 @@ export function PedidoProvider({ children }) {
                     return pedido;
                 })
             );
-            alert("Prato adicionado no carrinho");
         } else {
             // prato novo — adiciona à comanda
             const novoPedido = {
                 id: Date.now(),
                 name: Prato.name,
-                des: Prato.desc,
+                desc: Prato.desc,
                 quant: 1,
                 valueUni: Prato.valor,
                 valueTotal: Prato.valor,
@@ -47,12 +46,14 @@ export function PedidoProvider({ children }) {
             setComanda(prevComanda => [...prevComanda, novoPedido]);
         }
         setItems(items + 1);
+        alert("Prato adicionado no carrinho");
     }
 
     function onRemoverPedidoDaComanda(Prato) {
         setComanda(
             comanda.filter(pedido => pedido.id !== Prato.id)
         );
+        setItems(items - 1);
         alert("Prato removido do carrinho");
     }
     function onCalcularConta() {

@@ -1,8 +1,7 @@
 import PedidoCard from '../card/pedidoCard'
-import { usePedidoContext } from '../../context/pedidoConte xt';
+import { usePedidoContext } from '../../context/pedidoContext';
 function CarrinhoDataView() {
-    const {onRemovePedido} = usePedidoContext();
-    const {comanda} = usePedidoContext();
+    const {onRemoverPedidoDaComanda, comanda} = usePedidoContext();
     
     return (
         <>
@@ -13,8 +12,8 @@ function CarrinhoDataView() {
                         name={pedido.name}
                         desc={pedido.desc}
                         quant={pedido.quant}
-                        valor={pedido.valorUni}
-                        onSmash={onRemovePedido}
+                        valor={pedido.valueUni}
+                        onSmash={onRemoverPedidoDaComanda}
                     />
                 ))}
             </div>

@@ -2,10 +2,7 @@ function PedidoCard({ name, desc, quant, valor, onSmash }) {
     return (
         <>
             <div>
-                <span>{name}</span>
-                <span>{desc}</span>
-                <span>{quant}</span>
-                <span>{valor}</span>
+                <span>Nome: {name} Desc: {desc} Quant: {quant} ValorUnit: {valor}</span>
                 <button onClick={onSmash}>Remover</button>
             </div>
         </>
