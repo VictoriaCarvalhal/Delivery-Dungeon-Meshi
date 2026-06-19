@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 const PedidoContext = createContext();
 
 
@@ -18,21 +18,28 @@ export function PedidoProvider({ children }) {
     const [comanda, setComanda] = useState([])
     const [conta, setConta] = useState(0.0)
     const [items, setItems] = useState(0)
+
+    useEffect(() => {
+        const novaConta = comanda.reduce(
+            (total, pedido) => total + pedido.valueTotal, 0
+        );
+        setConta(novaConta);
+    }, [comanda]);
+
     function onAdicionarPedidoNaComanda(Prato) {
         const achar = comanda.find(pedido => pedido.name === Prato.name);
 
         if (achar !== undefined) {
-            // prato já existe na comanda — incrementa quantidade
             setComanda(
                 comanda.map((pedido) => {
                     if (pedido.name === Prato.name) {
-                        return { ...pedido, quant: pedido.quant + 1 };
+                        const novaQuant = pedido.quant + 1;
+                        return { ...pedido, quant: novaQuant, valueTotal: pedido.valueUni * novaQuant };
                     }
                     return pedido;
                 })
             );
         } else {
-            // prato novo — adiciona à comanda
             const novoPedido = {
                 id: Date.now(),
                 name: Prato.name,
@@ -56,23 +63,11 @@ export function PedidoProvider({ children }) {
         setItems(items - 1);
         alert("Prato removido do carrinho");
     }
-    function onCalcularConta() {
-        const comandaAtualizada = comanda.map((pedido) => ({
-            ...pedido,
-            valueTotal: pedido.valueUni * pedido.quant,
-        }));
-        setComanda(comandaAtualizada);
 
-        const novaConta = comandaAtualizada.reduce(
-            (total, pedido) => total + pedido.valueTotal,
-            0
-        );
-        setConta(novaConta);
-    }
 
 
     return (
-        <PedidoContext.Provider value={{ pedido, comanda, conta, items, onAdicionarPedidoNaComanda, onRemoverPedidoDaComanda, onCalcularConta }}>
+        <PedidoContext.Provider value={{ pedido, comanda, conta, items, onAdicionarPedidoNaComanda, onRemoverPedidoDaComanda }}>
             {children}
         </PedidoContext.Provider>
     );
