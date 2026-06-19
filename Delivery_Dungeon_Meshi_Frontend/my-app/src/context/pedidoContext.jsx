@@ -4,6 +4,7 @@ const PedidoContext = createContext();
 
 export function usePedidoContext() {
     const context = useContext(PedidoContext);
+    return context;
 }
 
 export function PedidoProvider({ children }) {
@@ -57,26 +58,29 @@ export function PedidoProvider({ children }) {
     }
 
     function onRemoverPedidoDaComanda(Prato) {
-        const pedidoAtivo = comanda.find(pedido => (pedido.name === Prato.name) && (pedido.quant > 0));
-        if (pedidoAtivo !== undefined){
-            setComanda(
-                comanda.map((pedido) => {
-                    if (pedido.name === Prato.name) {
-                        const novaQuant = pedido.quant - 1;
-                        return { ...pedido, quant: novaQuant, valueTotal: pedido.valueUni * novaQuant };
-                    }
-                    return pedido;
-                })
-            );
-        }
-        else{
-            setComanda(
-                comanda.filter(pedido => pedido.id !== Prato.id)
-            );
-        }
+        const pedidoAtivo = comanda.find(pedido => pedido.name === Prato.name);
 
-        setItems(items - 1);
-        alert("Prato removido do carrinho");
+        if (pedidoAtivo) {
+            if (pedidoAtivo.quant === 1) {
+                // Se a quantidade é 1, remover da comanda apaga o item de vez
+                setComanda(comanda.filter(pedido => pedido.name !== Prato.name));
+            } else {
+                // Se a quantidade for maior que 1, apenas diminui a quantidade
+                setComanda(
+                    comanda.map((pedido) => {
+                        if (pedido.name === Prato.name) {
+                            const novaQuant = pedido.quant - 1;
+                            return { ...pedido, quant: novaQuant, valueTotal: pedido.valueUni * novaQuant };
+                        }
+                        return pedido;
+                    })
+                );
+            }
+            
+            // Só diminui o número total de itens e dá o alerta se o item realmente estava na comanda
+            setItems(items > 0 ? items - 1 : 0);
+            alert("Prato removido do carrinho");
+        }
     }
 
 
