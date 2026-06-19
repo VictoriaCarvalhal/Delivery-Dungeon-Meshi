@@ -7,6 +7,7 @@
 - ~~ Criar a tela de Compra Feita ~~
 
 ## 19/06/2026
-- ~~ Adicionar uma trava no botão de finalizar compra, que checa se o carrinho está vazio ou não. Se estiver ele não deixa o usuário fazer nada. Se estiver cheio, ele deixa o usuário ir para a pagina de compra concluida. ~~ (Na parte logica o MPV está pronto)
+- ~~ Adicionar uma trava no botão de finalizar compra, que checa se o carrinho está vazio ou não. Se estiver ele não deixa o usuário fazer nada. Se estiver cheio, ele deixa o usuário ir para a pagina de compra concluida. ~~ 
+- Resumo dos itens pedidos e valor total
 - Estilizar paginas com css (EU MESMA, SEM AI. Ou com ajuda minima de AI)
 - Fazer backend
