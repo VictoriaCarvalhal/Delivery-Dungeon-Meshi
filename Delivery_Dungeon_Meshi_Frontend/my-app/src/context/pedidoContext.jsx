@@ -1,6 +1,11 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 const PedidoContext = createContext();
 
+
+export function usePedidoContext() {
+    const context = useContext(PedidoContext);
+}
+
 export function PedidoProvider({ children }) {
     const [pedido, setPedido] = useState({
         id: null,
