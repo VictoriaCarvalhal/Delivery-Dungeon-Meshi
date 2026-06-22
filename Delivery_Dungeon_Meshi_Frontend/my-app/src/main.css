@@ -54,6 +54,11 @@
 }
 
 body {
+  /* background-color: #F2E6DF;
+  opacity: 0.8;
+  background-image: linear-gradient(45deg, #8C1F1F 25%, transparent 25%, transparent 75%, #8C1F1F 75%), linear-gradient(45deg, #8C1F1F 25%, transparent 25%, transparent 75%, #8C1F1F 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px; */
   margin: 0;
 }
 
