@@ -6,11 +6,9 @@ function SectionMenu() {
 
             {/* ── Título com moldura e ornamentos ── */}
             <div>
-                <span>❧ ❧ ❧</span>
                 <div>
                     <h1>Sobre nosso restaurante</h1>
                 </div>
-                <span>❧ ❧ ❧</span>
             </div>
 
             {/* ── Conteúdo ── */}
