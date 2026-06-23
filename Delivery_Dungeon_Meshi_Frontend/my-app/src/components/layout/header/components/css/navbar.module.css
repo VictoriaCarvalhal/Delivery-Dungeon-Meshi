@@ -1,1 +1,7 @@
- 
+.navbar{
+   order: 2;
+}
+
+.navbar button{
+   gap: 20px; 
+}

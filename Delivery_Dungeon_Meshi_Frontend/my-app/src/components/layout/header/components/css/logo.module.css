@@ -1,1 +1,7 @@
- 
+.logo{
+    order: 1;
+} 
+
+.logo img{
+    width: 200px;
+}
