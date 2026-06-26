@@ -3,7 +3,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 160%;
     background-color: #A62929;
+    padding: 20px 10px;
+    border: solid #F2E6DF
 }

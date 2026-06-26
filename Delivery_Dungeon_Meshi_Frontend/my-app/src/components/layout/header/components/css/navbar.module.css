@@ -1,7 +1,24 @@
-.navbar{
+.navbar {
    order: 2;
    display: flex;
-   gap: 40px;
+   gap: 100px;
    align-items: center;
 }
 
+.navbar button {
+   width: 100px;
+   height: 50px;
+   background-color: #F2E6DF;
+   color: #0D0D0D;
+   font-family: Georgia, serif;
+   font-weight: bold;
+   letter-spacing: 2px;
+}
+
+.navbar button:hover {
+   background-color: #8C1F1F;
+}
+
+.navbar button:active {
+   background-color: #8C1F1F;
+}

@@ -1,7 +1,13 @@
 .logo{
     order: 1;
+    padding: 25px;
 } 
 
 .logo img{
-    width: 200px;
+    width: 150px;
+}
+
+.logo:hover {
+    filter: url("/shared-assets/images/examples/shadow.svg#element-id");
+    transform: translateY(-1%) scale(1.06);
 }

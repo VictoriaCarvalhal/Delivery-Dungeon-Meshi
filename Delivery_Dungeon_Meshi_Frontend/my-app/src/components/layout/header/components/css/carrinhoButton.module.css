@@ -1,4 +1,25 @@
+.carrinhoButton button{
+    background-color: transparent;
+    border: none;
+    display: flex;
+}
+
+.carrinhoButton button:hover{
+    transform: translateY(-1%) scale(1.06);
+}
+
 .carrinhoButton i {
-    font-size: 40px; /* Muda o tamanho do ícone */
-    color: #0d0d0d;  /* Muda a cor do ícone */
+    font-size: 40px;
+    color: #F2E6D7;
+    order: 1;
+}
+
+.badge{
+    order: 2;
+    align-self: end;
+    background-color: #F2E6DF; 
+    color: #8C1F1F;
+    min-width: 15px;
+    height: 15px;
+    border-radius: 50%;
 }

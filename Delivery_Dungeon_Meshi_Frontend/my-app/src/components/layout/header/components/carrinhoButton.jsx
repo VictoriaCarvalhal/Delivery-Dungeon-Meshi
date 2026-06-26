@@ -5,7 +5,7 @@ function CarrinhoButton({onSmash, items }) {
     return (
         <div className={styles.carrinhoButton}>
             <button onClick={onSmash}>
-                <span>{items}</span>
+                <span className={styles.badge}>{items}</span>
                 <i className="fi-shopping-cart"></i>
             </button>
         </div>
