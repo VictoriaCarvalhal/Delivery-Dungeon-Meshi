@@ -1,4 +1,4 @@
-.carrinhoButton img{
-    width: 40px;
-    height: auto;
+.carrinhoButton i {
+    font-size: 40px; /* Muda o tamanho do ícone */
+    color: #0d0d0d;  /* Muda a cor do ícone */
 }
