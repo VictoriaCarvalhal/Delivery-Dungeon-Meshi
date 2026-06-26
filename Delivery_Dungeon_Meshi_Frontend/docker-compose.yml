@@ -14,6 +14,5 @@ services:
       - rede_do_delivery_dungeon_meshi
 
 networks: 
-  networks:
   rede_do_delivery_dungeon_meshi:    
     name: delivery_dungeon_meshi_rede
