@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import MockPedidos from '../mocks/mockPedidos.json'
 
-export function usePratos() {
+export function usePedidos() {
     const [pedidos, setPedidos] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setPratos(MockPedidos);
+            setPedidos(MockPedidos);
             setLoading(false);
         }, 500);
 
