@@ -5,14 +5,20 @@ services:
     image: delivery_dungeon_meshi_imagem
     container_name: delivery_dungeon_meshi_container
     build: .
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
     ports:
       - "5175:5175"
     volumes:
       - ./my-app:/app 
-      - /app/node_modules
+      - node_modules_volume:/app/node_modules
     networks:
       - rede_do_delivery_dungeon_meshi
 
 networks: 
   rede_do_delivery_dungeon_meshi:    
     name: delivery_dungeon_meshi_rede
+
+volumes: 
+  node_modules_volume:
