@@ -9,7 +9,7 @@ services:
       - "5175:5175"
     volumes:
       - ./my-app:/app 
-      - node_modules_volume:/app/node_modules
+      - ddm_frontend_node_modules:/app/node_modules
     networks:
       - rede_do_delivery_dungeon_meshi
 
@@ -18,4 +18,4 @@ networks:
     name: delivery_dungeon_meshi_rede
 
 volumes: 
-  node_modules_volume:
+  ddm_frontend_node_modules:
