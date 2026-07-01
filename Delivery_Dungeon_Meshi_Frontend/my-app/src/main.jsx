@@ -2,11 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './main.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import PaginaInicial from './components/paginas/paginaInicial'
-import PaginaCardapio from './components/paginas/paginaCardapio'
-import PaginaCarrinho from './components/paginas/paginaCarrinho'
+import SectionMenu from './components/sections/sectionMenu'
+import SectionCardapio from './components/sections/sectionCardapio'
+import SectionCarrinho from './components/sections/sectionCarrinho'
+import SectionConfirmacaoCompra from './components/sections/sectionConfirmacaoCompra'
 import { PedidoProvider } from './context/pedidoContext'
-import PaginaConfirmacaoCompra from './components/paginas/paginaConfirmacaoCompra'
+import Layout from './components/layout/layout'
 
 
 createRoot(document.getElementById('root')).render(
@@ -14,10 +15,12 @@ createRoot(document.getElementById('root')).render(
     <PedidoProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<PaginaInicial />} />
-          <Route path="/cardapio" element={<PaginaCardapio />} />
-          <Route path="/carrinho" element={<PaginaCarrinho />} />
-          <Route path="/confirmacaoCompra" element={<PaginaConfirmacaoCompra/>}/>
+          <Route element={<Layout/>}>
+            <Route path="/" element={<SectionMenu />} />
+            <Route path="/cardapio" element={<SectionCardapio />} />
+            <Route path="/carrinho" element={<SectionCarrinho />} />
+            <Route path="/confirmacaoCompra" element={<SectionConfirmacaoCompra />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </PedidoProvider>
