@@ -14,7 +14,7 @@
 
 .carrinhoButton i {
     font-size: 40px;
-    color: #F2E6D7;
+    color: #A62929;
     order: 1;
 }
 
@@ -24,8 +24,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F2E6DF; 
-    color: #8C1F1F;
+    background-color: #A62929; 
+    color: #F2E6DF;
     min-width: 15px;
     height: 15px;
     border-radius: 50%;

@@ -13,16 +13,30 @@
     position: relative; 
 }
 
+.header > * {
+    position: realtive;
+    z-index: 1;
+}
+
+.header::before{
+    content: "";
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    background-color:#F2E6DF;
+    z-index: 0;
+}
+
 .header::after{
     content: "";
     position: absolute;
-    top: 10px;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-
-    border: 1px solid #F2E6DF;
-
+    top: 15px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    border: 15px solid #F2E6DF;
     pointer-events: none;
     z-index: 10;
 }
