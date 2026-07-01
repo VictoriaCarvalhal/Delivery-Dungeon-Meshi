@@ -11,3 +11,7 @@
 - Resumo dos itens pedidos e valor total
 - Estilizar paginas com css (EU MESMA, SEM AI. Ou com ajuda minima de AI)
 - Fazer backend
+
+## 01/07/2026
+
+- Apaguei uma pasta duplicada do nodemodule e estou apenas escrevendo aqui para dar commit
