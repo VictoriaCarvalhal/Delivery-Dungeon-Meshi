@@ -1,15 +1,14 @@
 import styles from './css/carrinhoButton.module.css';
 import "foundation-icons/foundation-icons.css";
-
-function CarrinhoButton({onSmash, items }) {
+import {Link} from 'react-router-dom'
+function CarrinhoButton({items}) {
     return (
         <div className={styles.carrinhoButton}>
-            <button onClick={onSmash}>
+            <Link to="/carrinho">
                 <span className={styles.badge}>{items}</span>
                 <i className="fi-shopping-cart"></i>
-            </button>
+            </Link>
         </div>
-    
     )
 }
 
