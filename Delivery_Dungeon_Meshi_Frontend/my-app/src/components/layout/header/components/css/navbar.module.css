@@ -2,7 +2,7 @@
    order: 2;
    display: flex;
    gap: 10px; 
-   padding: 10px 10px;
+   padding: 10px 20px;
    align-items: center;
    background-color: #F2E6DF;
 }
@@ -19,6 +19,7 @@
    font-family: 'EB Garamond', serif;
    font-weight: bold;
    letter-spacing: 2px;
+   font-variant: small-caps;
    border: none;
 }
 
