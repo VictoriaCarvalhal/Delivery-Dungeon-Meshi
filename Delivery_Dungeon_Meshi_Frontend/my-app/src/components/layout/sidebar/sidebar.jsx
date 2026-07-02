@@ -1,5 +1,6 @@
 // import styles from './sidebar.module.css'
 import {useLocation} from 'react-router-dom';
+import style from "./sidebar.module.css";
 
 const sidebarContent = {
     '/': {
@@ -25,7 +26,7 @@ function Sidebar({side}) {
     const { pathname } = useLocation();
     const text = sidebarContent[pathname]?.[side] || `Sidebar ${side}`;
     return (
-        <aside className={`sidebar sidebar-${side}`}>
+        <aside className={`${style.Sidebar} ${style[side]}`}>
             <p>{text}</p>
         </aside>
     );

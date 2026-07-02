@@ -122,20 +122,3 @@ code {
   background: var(--code-bg);
 }
 
-.content-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex: 1; /* take up remaining vertical space */
-  width: 100%;
-}
-
-.content-wrapper > main {
-  flex: 1; /* Expand to fill available space between sidebars */
-  padding: 20px;
-}
-
-.sidebar {
-  width: 200px;
-  padding: 20px;
-  /* Optional: you can add a background or border here if needed */
-}
