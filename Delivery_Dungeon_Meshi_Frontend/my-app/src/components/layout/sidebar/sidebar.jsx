@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom'
 import style from "./sidebar.module.css";
 
-import { SidebarImage } from './components/sidebarImages';
+import SidebarImage from './components/sidebarImage';
 
 const sidebarContent ={
     '/':{
