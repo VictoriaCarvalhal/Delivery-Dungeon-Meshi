@@ -1,35 +1,23 @@
-// import styles from './sidebar.module.css'
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 import style from "./sidebar.module.css";
 
-const sidebarContent = {
-    '/': {
-        left: 'Sidebar Menu Esquerdo - Home',
-        right: 'Sidebar Menu Direito - Home',
-    },
-    '/cardapio':{
-        left: 'Sidebar Menu Esquerdo - Cardápio',
-        right: 'Sidebar Menu Direito - Cardápio',
-    },
-    '/carrinho':{
-        left: 'Sidebar Menu Esquerdo - Carrinho',
-        right: 'Sidebar Menu Direito - Carrinho',
-    },
-    '/confirmacaoCompra':{
-        left: 'Sidebar Menu Esquerdo - Confirmacao Compra',
-        right: 'Sidebar Menu Direito - Confirmacao Compra',
-    },
+import { SidebarImage } from './components/sidebarImages';
+
+const sidebarContent ={
+    '/':{
+        left: <SidebarImage/>,
+        right: <SidebarImage/>,
+    }
 }
-
-
 function Sidebar({side}) {
     const { pathname } = useLocation();
-    const text = sidebarContent[pathname]?.[side] || `Sidebar ${side}`;
+    const content = sidebarContent[pathname]?.[side];
+
     return (
         <aside className={`${style.Sidebar} ${style[side]}`}>
-            <p>{text}</p>
+            {content || <p>Sidebar {side} padrão</p>}
         </aside>
     );
 }
 
-export default Sidebar
+export default Sidebar;
