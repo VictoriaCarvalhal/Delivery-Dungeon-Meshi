@@ -26,6 +26,7 @@
     left: 15px;
     right: 15px;
     background-color:#F2E6DF;
+    pointer-events: none;
     z-index: 0;
 }
 
