@@ -1,0 +1,21 @@
+name: ddm
+
+services: 
+  app:
+    image: ddm-image
+    container_name: ddm-container
+    build: .
+    ports:
+      - "5175:5175"
+    volumes:
+      - ./my-app:/app 
+      - ddm-volume:/app/node_modules
+    networks:
+      - ddm-network
+
+networks: 
+  ddm-network:    
+    name: ddm-network
+
+volumes: 
+  ddm-volume:
