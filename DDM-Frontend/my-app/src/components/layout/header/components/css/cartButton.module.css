@@ -1,0 +1,42 @@
+/* Estilos fundidos de cart.module.css e carrinhoButton.module.css */
+
+.cartButton {
+    order: 3;
+    padding: 25px;
+    margin-left: auto;
+}
+
+.cartButton a {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.cartButton a:hover {
+    transform: translateY(-1%) scale(1.06);
+}
+
+.cartButton i {
+    font-size: 40px;
+    color: #A62929;
+    order: 1;
+}
+
+.badge {
+    order: 2;
+    align-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A62929;
+    color: #F2E6DF;
+    min-width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-family: 'EB Garamond', serif;
+    font-variant: small-caps;
+}
