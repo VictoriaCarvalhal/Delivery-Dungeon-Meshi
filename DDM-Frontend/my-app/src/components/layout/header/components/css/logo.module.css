@@ -5,9 +5,9 @@
 
 .logo img{
     width: 150px;
+    cursor: pointer;
 }
 
 .logo:hover {
-    filter: url("/shared-assets/images/examples/shadow.svg#element-id");
     transform: translateY(-1%) scale(1.06);
 }

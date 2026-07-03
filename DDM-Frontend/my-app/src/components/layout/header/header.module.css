@@ -14,7 +14,7 @@
 }
 
 .header > * {
-    position: realtive;
+    position: relative;
     z-index: 1;
 }
 
