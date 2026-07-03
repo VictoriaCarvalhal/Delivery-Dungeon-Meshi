@@ -19,3 +19,4 @@ networks:
 
 volumes: 
   ddm-volume:
+    name: ddm-volume
