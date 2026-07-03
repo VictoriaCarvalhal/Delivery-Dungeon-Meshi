@@ -15,3 +15,23 @@
 ## 01/07/2026
 
 - Apaguei uma pasta duplicada do nodemodule e estou apenas escrevendo aqui para dar commit
+
+## 03/07/2026
+
+### Feito Hoje:
+- ~~Renomear toda a infraestrutura do projeto (Docker, pastas, convenções para DDM-)~~
+- ~~Consolidar componentes redundantes (Cart + CarrinhoButton)~~
+- ~~Implementar efeitos interativos de hover no logo (troca de imagem)~~
+- ~~Fazer avaliação crítica da complexidade do design e gerar o AnaliseCssRoadmap~~
+- ~~Corrigir typo em `header.module.css`: mudar `position: realtive` para `position: relative`~~
+- ~~Corrigir typo em `logo.module.css`: remover aspas de `cursor: 'pointer'` para `cursor: pointer`~~
+
+### Próximos Passos (Baseado no AnaliseCssRoadmap.md):
+#### Fase 1 — Fundação (Conteúdo das Páginas)
+- [ ] Limpar `main.css` (remover código morto, definir variáveis de cor reais e fontes)
+- [ ] Criar e estilizar `pratoCard.module.css` (card com nome, descrição, valor e botão "Adicionar")
+- [ ] Criar e estilizar `pedidoCard.module.css` (card do carrinho com quantidade, valores, botão "Remover")
+- [ ] Estilizar `cardapio.module.css` (grid responsivo)
+- [ ] Criar e estilizar CSS para o carrinho (lista, total, botão finalizar)
+- [ ] Estilizar `menu.module.css` (tipografia, espaçamento, CTA)
+- [ ] Estilizar Confirmação (mensagem de sucesso com estilo)
