@@ -13,3 +13,5 @@ desktop.ini
 *.njsproj
 *.sln
 *.sw?
+
+node_modules/
