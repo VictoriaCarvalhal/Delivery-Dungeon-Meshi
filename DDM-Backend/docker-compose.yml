@@ -1,0 +1,23 @@
+name: ddm-backend
+
+services:
+  api:
+    image: ddm-backend-image
+    container_name: ddm-backend-container
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - ddm-backend-volume:/app/node_modules
+    networks:
+      - ddm-network
+
+networks:
+  ddm-network:
+    name: ddm-network
+
+volumes:
+  ddm-backend-volume:
+    name: ddm-backend-volume
