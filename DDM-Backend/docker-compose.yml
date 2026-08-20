@@ -13,6 +13,28 @@ services:
       - ddm-backend-volume:/app/node_modules
     networks:
       - ddm-network
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:17
+    container_name: ddm-postgres-container
+    environment:
+      POSTGRES_USER: ddm_user
+      POSTGRES_PASSWORD: ddm_pass
+      POSTGRES_DB: ddm_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - ddm-postgres-data:/var/lib/postgresql/data
+    networks:
+      - ddm-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ddm_user -d ddm_database"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 networks:
   ddm-network:
@@ -21,3 +43,5 @@ networks:
 volumes:
   ddm-backend-volume:
     name: ddm-backend-volume
+  ddm-postgres-data:
+    name: ddm-postgres-data
