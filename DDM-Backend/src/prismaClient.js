@@ -1,12 +1,41 @@
 import { Pool } from 'pg';
 import { PrismaPg } from '@prisma/adapter-pg';
-// 1. Importar o PrismaClient apontando para a sua pasta gerada
-// Como o arquivo está dentro de 'src', usamos '../' para voltar uma pasta e achar a 'generated'
+
 import { PrismaClient } from '../generated/prisma/index.js';
-// 2. Configurar a conexão com o banco de dados usando o pacote 'pg'
+
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({ connectionString });
-// 3. Criar o adaptador do Prisma para o Postgres
+
 const adapter = new PrismaPg(pool);
-// 4. Finalmente, criar e exportar a instância do Prisma Client
-export const prisma = new PrismaClient({ adapter });
+
+export const prisma = new PrismaClient({ adapter }).$extends({
+    result:{
+        pedido:{
+            valor_total:{
+                needs:{quant:true},
+                compute(pedido){
+                    if(pedido.prato && pedido.prato.valor_uni){
+                        return pedido.quant * pedido.prato.valor_uni;
+                    }
+                    return 0;
+                }
+            }
+        },
+        carrinho:{
+            conta:{
+                needs:{},
+                compute(carrinho){
+                    if(carrinho.pedido && Array.isArray(carrinho.pedido)){
+                        return carrinho.pedido.reduce((soma,itemPedido) =>{
+                            return soma + (itemPedido.valor_total || 0)
+                        }, 0);
+                    }
+                    return 0;
+                }
+            }
+        }
+    }
+});
+
+
+

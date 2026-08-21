@@ -14,7 +14,7 @@ model Prato{
   id_prato Int @id @default(autoincrement())
   nome String @unique
   desc String
-  ValorUnit Float
+  valor_unit Float
 
   pedidos  Pedido[] 
 
@@ -25,7 +25,7 @@ model Pedido{
   id_pedido Int @id @default(autoincrement())
   id_prato Int
   id_carrinho Int
-  Quant Int
+  quant Int
 
   prato Prato @relation(fields: [id_prato], references: [id_prato], onDelete: Cascade, onUpdate: Cascade)
 
