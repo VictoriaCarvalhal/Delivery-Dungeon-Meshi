@@ -2,11 +2,41 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+}
+
+model Prato{
+  id_prato Int @id @default(autoincrement())
+  nome String @unique
+  desc String
+  ValorUnit Float
+
+  pedidos   Pedido[] 
+
+  @@index([id_prato])
+}
+
+model Pedido{
+  id_pedido Int @id @default(autoincrement())
+  id_prato Int
+  Quant Int
+
+  prato Prato @relation(fields: [id_prato], references: [id_prato], onDelete: Cascade, onUpdate: Cascade)
+  carrinhos Carrinho[]
+
+  @@index([id_pedido])
+}
+
+model Carrinho{
+  id_carrinho Int @id @default(autoincrement())
+  id_pedido Int
+
+  pedido Pedido @relation(fields: [id_pedido], references:[id_pedido], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([id_carrinho])
 }
