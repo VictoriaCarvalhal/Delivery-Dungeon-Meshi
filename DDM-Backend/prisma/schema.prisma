@@ -16,7 +16,7 @@ model Prato{
   desc String
   ValorUnit Float
 
-  pedidos   Pedido[] 
+  pedidos  Pedido[] 
 
   @@index([id_prato])
 }
@@ -24,10 +24,12 @@ model Prato{
 model Pedido{
   id_pedido Int @id @default(autoincrement())
   id_prato Int
+  id_carrinho Int
   Quant Int
 
   prato Prato @relation(fields: [id_prato], references: [id_prato], onDelete: Cascade, onUpdate: Cascade)
-  carrinhos Carrinho[]
+
+  carrinhos Carrinho @relation(fields: [id_carrinho], references: [id_carrinho],onDelete: Cascade, onUpdate: Cascade )
 
   @@index([id_pedido])
 }
@@ -36,7 +38,7 @@ model Carrinho{
   id_carrinho Int @id @default(autoincrement())
   id_pedido Int
 
-  pedido Pedido @relation(fields: [id_pedido], references:[id_pedido], onDelete: Cascade, onUpdate: Cascade)
+  pedido Pedido[]
 
   @@index([id_carrinho])
 }
