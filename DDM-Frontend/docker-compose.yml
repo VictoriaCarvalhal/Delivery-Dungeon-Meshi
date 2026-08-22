@@ -16,6 +16,7 @@ services:
 networks: 
   ddm-network:    
     name: ddm-network
+    external: true
 
 volumes: 
   ddm-volume:
