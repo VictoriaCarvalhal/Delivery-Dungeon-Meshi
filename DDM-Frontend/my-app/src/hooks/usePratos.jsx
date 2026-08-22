@@ -1,18 +1,24 @@
 import { useState, useEffect } from 'react';
-import MockPratos from '../mocks/mockPratos.json'
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 export function usePratos() {
     const [pratos, setPratos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const timer = setTimeout(() =>{
-            setPratos(MockPratos); 
-            setLoading(false);
-        }, 500);
+        fetch(`${API_URL}/pratos`)
+            .then(res => res.json())
+            .then(data => {
+                setPratos(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                setError(err);
+                setLoading(false);
+            });
+    }, []);
 
-        return () => clearTimeout(timer);
-    },[]);
-
-    return {pratos,loading};
+    return { pratos, loading, error };
 }

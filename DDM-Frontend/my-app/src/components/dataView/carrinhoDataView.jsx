@@ -2,7 +2,7 @@ import PedidoCard from '../card/pedidoCard'
 import { usePedidoContext } from '../../context/pedidoContext';
 import { useNavigate } from "react-router-dom";
 function CarrinhoDataView() {
-    const {onRemoverPedidoDaComanda, comanda, conta, items} = usePedidoContext();
+    const { removerPedido, pedidos, conta, items } = usePedidoContext();
     const navigate = useNavigate();
 
     function onHandleClick(){
@@ -10,21 +10,21 @@ function CarrinhoDataView() {
             navigate("/confirmacaoCompra");
         }
         else{
-            alert("Nao é possível finalizar compra. Você não adicionou nenhum prato no seu carrinho.");
+            alert("Não é possível finalizar compra. Você não adicionou nenhum prato no seu carrinho.");
         }
     }
     return (
         <>
             <div>
-                {comanda.map((pedido) => (
+                {pedidos.map((pedido) => (
                     <PedidoCard
-                        key={pedido.id}
-                        name={pedido.name}
-                        desc={pedido.desc}
+                        key={pedido.id_pedido}
+                        nome={pedido.prato.nome}
+                        desc={pedido.prato.desc}
                         quant={pedido.quant}
-                        valor={pedido.valueUni}
-                        valorTotal={pedido.valueTotal}
-                        onSmash={() => onRemoverPedidoDaComanda(pedido)}
+                        valor_unit={pedido.prato.valor_unit}
+                        valor_total={pedido.valor_total_pedido}
+                        onSmash={() => removerPedido(pedido)}
                     />
                 ))}
             </div>

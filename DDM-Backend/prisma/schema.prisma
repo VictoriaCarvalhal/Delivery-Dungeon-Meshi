@@ -32,13 +32,13 @@ model Pedido{
 
   carrinho Carrinho @relation(fields: [id_carrinho], references: [id_carrinho],onDelete: Cascade, onUpdate: Cascade )
 
+  @@unique([id_prato, id_carrinho])
   @@index([id_pedido])
 
 }
 
 model Carrinho{
   id_carrinho Int @id @default(autoincrement())
-  id_pedido Int
 
   pedido Pedido[]
 

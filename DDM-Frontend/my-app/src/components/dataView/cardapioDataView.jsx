@@ -2,7 +2,7 @@ import {usePratos} from '../../hooks/usePratos'
 import PratoCard from "../card/pratoCard"
 import { usePedidoContext } from '../../context/pedidoContext';
 function CardapioDataView() {
-    const { onAdicionarPedidoNaComanda } = usePedidoContext();
+    const { adicionarPedido } = usePedidoContext();
     const {pratos, loading} = usePratos();
 
     if (loading){
@@ -14,11 +14,11 @@ function CardapioDataView() {
                 <div>
                     {pratos.map((prato) => (
                         <PratoCard
-                            key={prato.id}
-                            name={prato.name}
+                            key={prato.id_prato}
+                            nome={prato.nome}
                             desc={prato.desc}
-                            valor={prato.valorUni}
-                            onSmash={onAdicionarPedidoNaComanda}
+                            valor_unit={prato.valor_unit}
+                            onSmash={() => adicionarPedido(prato)}
                         />
                     ))}
                 </div>
