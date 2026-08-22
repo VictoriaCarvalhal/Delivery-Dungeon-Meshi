@@ -67,7 +67,7 @@ app.get(`/pratos`, async(req,res) => {
   res.json(pratos)
 })
 
-app.post(`pedidos`, async(req,res) =>{
+app.post(`/pedidos`, async(req,res) =>{
   const {id_prato, id_carrinho, quant} = req.body
   const result = await prisma.pedido.create({
     data:{
@@ -75,14 +75,59 @@ app.post(`pedidos`, async(req,res) =>{
       id_carrinho,
       quant,
     },
+    include:{
+      prato: true,
+    }
   })
   res.json(result)
 })
 
 app.get(`/pedidos`, async (req, res) => {
-  const pedidos = await prisma.pedido.findMany()
+  const pedidos = await prisma.pedido.findMany({
+    include: {
+      prato: true,
+    }
+  })
   res.json(pedidos)
 })
+
+app.put(`/pedidos/:id/quant`, async(req,res) =>{
+  const { id } = req.params;
+
+  try {
+
+    const pedidoAtual = await prisma.pedido.findUnique({
+      where: {id_pedido: Number(id)}
+    });
+
+    if(!pedidoAtual){
+      return res.json({error:'Pedido nao encontrado'});
+    }
+
+    if (pedidoAtual.quant > 1){
+
+      const pedidoAtualizado = await prisma.pedido.update({
+        where: { id_pedido: Number(id) },
+        data: {
+          quant: {
+            decrement: 1,
+          },
+        },
+      });  
+      res.json(pedidoAtualizado);
+    }
+    else {
+      const pedidoDeletado = await prisma.pedido.delete({
+        where: {
+              id_pedido: Number(id),
+            },
+      });
+      res.json({ message: "Pedido deletado com sucesso!" });
+    }
+  } catch (error){
+    res.json({error:'Ocorreu um erro ou o pedido não existe'});
+  }
+});
 
 app.post(`/carrinhos`, async (req, res) => {
   const { id_pedido } = req.body
@@ -90,11 +135,22 @@ app.post(`/carrinhos`, async (req, res) => {
     data: {
       id_pedido,
     },
+    include: {
+      pedido: true,
+    }
   })
   res.json(result)
 })
 
 app.get(`/carrinhos`, async (req, res) => {
-  const carrinhos = await prisma.carrinho.findMany()
+  const carrinhos = await prisma.carrinho.findMany({
+    include: {
+      pedido: {
+        include:{
+          prato: true,
+        }
+      }
+    }
+  })
   res.json(carrinhos)
 })
