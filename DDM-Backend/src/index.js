@@ -1,6 +1,7 @@
 import 'dotenv/config'; // Carrega as variáveis do .env
 import express from 'express';
 import cors from 'cors';
+import prisma from './prismaClient';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -47,4 +48,70 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
 
+//Minha REST API 
 
+app.post(`/post/prato`, async(req,res) => {
+  const {nome,desc,valor_unit} = req.body
+  const result = await prisma.post.create({
+    data:{
+      nome,
+      desc,
+      valor_unit,
+    },
+  })
+  res.json(result)
+})
+
+app.get(`/pratos`, async(res,res) => {
+  const pratos = await prisma.Prato.findMany()
+  res.json(pratos)
+})
+
+app.post(`/post/pedido`, async(req,res) =>{
+  const {id_prato, id_carrinho, quant} = req.body
+  const result = await prisma.post.create({
+    data:{
+      id_prato,
+      id_carrinho,
+      quant,
+    },
+  })
+  res.json(result)
+})
+
+app.get(`/pedidos`, async (res, res) => {
+  const pedidos = await prisma.Pedido.findMany()
+  res.json(pedidos)
+})
+
+app.post(`/post/pedido`, async (req, res) => {
+  const { id_prato, id_carrinho, quant } = req.body
+  const result = await prisma.post.create({
+    data: {
+      id_prato,
+      id_carrinho,
+      quant,
+    },
+  })
+  res.json(result)
+})
+
+app.get(`/pedidos`, async (res, res) => {
+  const pedidos = await prisma.Pedido.findMany()
+  res.json(pedidos)
+})
+
+app.post(`/post/carrinho`, async (req, res) => {
+  const { id_pedido } = req.body
+  const result = await prisma.post.create({
+    data: {
+      id_pedido,
+    },
+  })
+  res.json(result)
+})
+
+app.get(`/carrinhos`, async (res, res) => {
+  const carrinhos = await prisma.Carrinho.findMany()
+  res.json(carrinhos)
+})
