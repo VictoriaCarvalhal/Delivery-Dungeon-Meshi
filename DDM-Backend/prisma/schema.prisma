@@ -29,7 +29,7 @@ model Pedido{
 
   prato Prato @relation(fields: [id_prato], references: [id_prato], onDelete: Cascade, onUpdate: Cascade)
 
-  carrinhos Carrinho @relation(fields: [id_carrinho], references: [id_carrinho],onDelete: Cascade, onUpdate: Cascade )
+  carrinho Carrinho @relation(fields: [id_carrinho], references: [id_carrinho],onDelete: Cascade, onUpdate: Cascade )
 
   @@index([id_pedido])
 }

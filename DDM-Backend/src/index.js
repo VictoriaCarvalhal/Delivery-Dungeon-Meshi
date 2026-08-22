@@ -1,12 +1,8 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-const wiki = require("./wiki.js");
-
-app.use("/wiki",wiki);
 
 // Middlewares
 app.use(cors());
@@ -27,4 +23,5 @@ app.get('/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
+
 
