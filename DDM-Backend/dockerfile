@@ -2,12 +2,21 @@ FROM node:22-alpine
 
 WORKDIR /app
 
+# 1. Copia apenas os arquivos de dependências e schema
+COPY package.json package-lock.json* ./
+COPY prisma ./prisma
+COPY prisma.config.ts .
+
+# 2. Instala dependências e gera o cliente Prisma
+# Esta camada só é re-executada se package.json, prisma/ ou prisma.config.ts mudarem
+RUN npm install
+RUN npx prisma generate
+
+# 3. Copia o código fonte (muda com frequência, mas não re-executa o npm install)
 COPY src ./src
-COPY package.json .
 COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
-RUN npm install
 
 EXPOSE 3000
 

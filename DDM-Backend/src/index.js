@@ -50,9 +50,9 @@ app.listen(PORT, () => {
 
 //Minha REST API 
 
-app.post(`/post/prato`, async(req,res) => {
+app.post(`/pratos`, async(req,res) => {
   const {nome,desc,valor_unit} = req.body
-  const result = await prisma.post.create({
+  const result = await prisma.prato.create({
     data:{
       nome,
       desc,
@@ -62,14 +62,14 @@ app.post(`/post/prato`, async(req,res) => {
   res.json(result)
 })
 
-app.get(`/pratos`, async(res,res) => {
-  const pratos = await prisma.Prato.findMany()
+app.get(`/pratos`, async(req,res) => {
+  const pratos = await prisma.prato.findMany()
   res.json(pratos)
 })
 
-app.post(`/post/pedido`, async(req,res) =>{
+app.post(`pedidos`, async(req,res) =>{
   const {id_prato, id_carrinho, quant} = req.body
-  const result = await prisma.post.create({
+  const result = await prisma.pedido.create({
     data:{
       id_prato,
       id_carrinho,
@@ -79,31 +79,14 @@ app.post(`/post/pedido`, async(req,res) =>{
   res.json(result)
 })
 
-app.get(`/pedidos`, async (res, res) => {
-  const pedidos = await prisma.Pedido.findMany()
+app.get(`/pedidos`, async (req, res) => {
+  const pedidos = await prisma.pedido.findMany()
   res.json(pedidos)
 })
 
-app.post(`/post/pedido`, async (req, res) => {
-  const { id_prato, id_carrinho, quant } = req.body
-  const result = await prisma.post.create({
-    data: {
-      id_prato,
-      id_carrinho,
-      quant,
-    },
-  })
-  res.json(result)
-})
-
-app.get(`/pedidos`, async (res, res) => {
-  const pedidos = await prisma.Pedido.findMany()
-  res.json(pedidos)
-})
-
-app.post(`/post/carrinho`, async (req, res) => {
+app.post(`/carrinhos`, async (req, res) => {
   const { id_pedido } = req.body
-  const result = await prisma.post.create({
+  const result = await prisma.carrinho.create({
     data: {
       id_pedido,
     },
@@ -111,7 +94,7 @@ app.post(`/post/carrinho`, async (req, res) => {
   res.json(result)
 })
 
-app.get(`/carrinhos`, async (res, res) => {
-  const carrinhos = await prisma.Carrinho.findMany()
+app.get(`/carrinhos`, async (req, res) => {
+  const carrinhos = await prisma.carrinho.findMany()
   res.json(carrinhos)
 })
