@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, useMemo } from 'react';
+import { createContext, useContext, useState, useCallback } from 'react';
 
 const PedidoContext = createContext();
 
@@ -12,24 +12,16 @@ export function usePedidoContext() {
 export function PedidoProvider({ children }) {
     const [carrinhoId, setCarrinhoId] = useState(null);
     const [pedidos, setPedidos] = useState([]);
+    const [items, setItems] = useState(0);
+    const [conta, setConta] = useState(0);
     const [loading, setLoading] = useState(false);
 
-    // Valores derivados — sem useState, sem useEffect
-    const items = useMemo(
-        () => pedidos.reduce((total, p) => total + p.quant, 0),
-        [pedidos]
-    );
-
-    const conta = useMemo(
-        () => pedidos.reduce((total, p) => {
-            // Usa o campo computado do Prisma se disponível, senão calcula
-            if (p.valor_total_pedido !== undefined) {
-                return total + p.valor_total_pedido;
-            }
-            return total + (p.prato ? p.prato.valor_unit * p.quant : 0);
-        }, 0),
-        [pedidos]
-    );
+    // Atualiza todos os estados a partir da resposta da API do carrinho
+    function atualizarCarrinho(data) {
+        setPedidos(data.pedido || []);
+        setItems(data.num_items || 0);
+        setConta(data.valor_total_Carrinho || 0);
+    }
 
     // Cria um carrinho vazio no backend
     const inicializarCarrinho = useCallback(async () => {
@@ -40,7 +32,7 @@ export function PedidoProvider({ children }) {
             });
             const data = await res.json();
             setCarrinhoId(data.id_carrinho);
-            setPedidos(data.pedido || []);
+            atualizarCarrinho(data);
             return data.id_carrinho;
         } catch (error) {
             console.error('Erro ao criar carrinho:', error);
@@ -54,7 +46,7 @@ export function PedidoProvider({ children }) {
         try {
             const res = await fetch(`${API_URL}/carrinhos/${carId}`);
             const data = await res.json();
-            setPedidos(data.pedido || []);
+            atualizarCarrinho(data);
         } catch (error) {
             console.error('Erro ao buscar pedidos:', error);
         }
