@@ -1,7 +1,7 @@
 import 'dotenv/config'; // Carrega as variáveis do .env
 import express from 'express';
 import cors from 'cors';
-import prisma from './prismaClient';
+import { prisma } from './prismaClient.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -89,6 +89,7 @@ app.get(`/pratos`, async(req,res) => {
     const pratos = await prisma.prato.findMany()
     res.json(pratos)
   } catch (error) {
+    console.error("Erro no GET /pratos:", error);
     res.status(500).json({ error: 'Erro ao buscar pratos' });
   }
 })
