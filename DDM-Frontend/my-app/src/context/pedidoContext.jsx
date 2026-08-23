@@ -101,7 +101,7 @@ export function PedidoProvider({ children }) {
                 throw new Error(err.error || 'Erro ao remover pedido');
             }
 
-            await fetchPedidos();
+            await fetchPedidos(carrinhoId);
             alert("Prato removido do carrinho");
         } catch (error) {
             console.error('Erro ao remover pedido:', error);
@@ -109,7 +109,7 @@ export function PedidoProvider({ children }) {
         } finally {
             setLoading(false);
         }
-    }, [fetchPedidos]);
+    }, [carrinhoId,fetchPedidos]);
 
     return (
         <PedidoContext.Provider value={{

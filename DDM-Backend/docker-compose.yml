@@ -7,6 +7,7 @@ services:
     build: .
     ports:
       - "3000:3000"
+      - "5555:5555"
     env_file:
       - .env
     volumes:
@@ -24,7 +25,7 @@ services:
     container_name: ddm-postgres-container
     environment:
       POSTGRES_USER: ddm_user
-      POSTGRES_PASSWORD: ddm_pass
+      POSTGRES_PASSWORD: abacaxi
       POSTGRES_DB: ddm_database
     ports:
       - "5432:5432"

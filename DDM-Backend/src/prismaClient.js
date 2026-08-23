@@ -10,24 +10,24 @@ const adapter = new PrismaPg(pool);
 
 export const prisma = new PrismaClient({ adapter }).$extends({
     result:{
-        Pedido:{
+        pedido:{
             valor_total_pedido:{
                 needs:{quant:true},
-                compute(Pedido){
-                    if(Pedido.prato && Pedido.prato.valor_unit){
-                        return Pedido.quant * Pedido.prato.valor_unit;
+                compute(pedido){
+                    if(pedido.prato && pedido.prato.valor_unit){
+                        return pedido.quant * pedido.prato.valor_unit;
                     }
                     return 0;
                 }
             }
         },
-        Carrinho:{
-            valor_total_Carrinho:{
+        carrinho:{
+            valor_total_carrinho:{
                 needs:{},
-                compute(Carrinho){
-                    if(Carrinho.pedido && Array.isArray(Carrinho.pedido)){
-                        return Carrinho.pedido.reduce((soma,itemPedido) =>{
-                            return soma + (itemPedido.valor_total_pedido || 0)
+                compute(carrinho){
+                    if(carrinho.pedido && Array.isArray(carrinho.pedido)){
+                        return carrinho.pedido.reduce((soma,itempedido) =>{
+                            return soma + (itempedido.valor_total_pedido || 0)
                         }, 0);
                     }
                     return 0;
@@ -35,9 +35,9 @@ export const prisma = new PrismaClient({ adapter }).$extends({
             },
             num_items:{
                 needs:{},
-                compute(Carrinho){
-                    if(Carrinho.pedido && Array.isArray(Carrinho.pedido)){
-                        return Carrinho.pedido.length;
+                compute(carrinho){
+                    if(carrinho.pedido && Array.isArray(carrinho.pedido)){
+                        return carrinho.pedido.length;
                     }
                     return 0;
                 }
