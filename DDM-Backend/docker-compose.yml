@@ -11,9 +11,12 @@ services:
     env_file:
       - .env
     volumes:
-      - ./src:/app/src
-      - ./package.json:/app/package.json
+      # 1. Espelha a raiz do projeto (código, .ts configs, prisma/, etc.)
+      - .:/app
+      # 2. Volume anônimo/nomeado para isolar o node_modules compilado do container
       - ddm-backend-volume:/app/node_modules
+      # 3. Impede que o client compilado seja sobrescrito se 'output' for fora de node_modules
+      - /app/generated
     networks:
       - ddm-network
     depends_on:
