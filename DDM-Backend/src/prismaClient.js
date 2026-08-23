@@ -37,7 +37,9 @@ export const prisma = new PrismaClient({ adapter }).$extends({
                 needs:{},
                 compute(carrinho){
                     if(carrinho.pedido && Array.isArray(carrinho.pedido)){
-                        return carrinho.pedido.length;
+                        return carrinho.pedido.reduce((soma, itempedido) => {
+                            return soma + (itempedido.quant || 0)
+                        }, 0);
                     }
                     return 0;
                 }

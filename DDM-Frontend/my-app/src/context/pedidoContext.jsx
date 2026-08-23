@@ -20,7 +20,7 @@ export function PedidoProvider({ children }) {
     function atualizarCarrinho(data) {
         setPedidos(data.pedido || []);
         setItems(data.num_items || 0);
-        setConta(data.valor_total_Carrinho || 0);
+        setConta(data.valor_total_carrinho || 0);
     }
 
     // Cria um carrinho vazio no backend
