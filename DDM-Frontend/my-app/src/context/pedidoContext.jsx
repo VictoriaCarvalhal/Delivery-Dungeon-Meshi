@@ -49,12 +49,10 @@ export function PedidoProvider({ children }) {
         }
     }, [carrinhoId]);
 
-    // Adicionar pedido — delega ao backend (com upsert)
     const adicionarPedido = useCallback(async (prato) => {
         setLoading(true);
         let currentCarrinhoId = carrinhoId;
 
-        // Cria o carrinho na primeira adição
         if (!currentCarrinhoId) {
             currentCarrinhoId = await inicializarCarrinho();
         }
@@ -85,7 +83,6 @@ export function PedidoProvider({ children }) {
         }
     }, [carrinhoId, fetchPedidos, inicializarCarrinho]);
 
-    // Remover pedido — delega ao backend (decrementa ou deleta)
     const removerPedido = useCallback(async (pedido) => {
         setLoading(true);
         try {
