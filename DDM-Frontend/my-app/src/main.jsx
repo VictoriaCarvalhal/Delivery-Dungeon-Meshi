@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './main.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import SectionMenu from './components/sections/sectionMenu'
 import SectionCardapio from './components/sections/sectionCardapio'
 import SectionCarrinho from './components/sections/sectionCarrinho'
@@ -13,7 +13,7 @@ import Layout from './components/layout/layout'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <PedidoProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route element={<Layout/>}>
             <Route path="/" element={<SectionMenu />} />
@@ -22,7 +22,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="/confirmacaoCompra" element={<SectionConfirmacaoCompra />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </PedidoProvider>
   </StrictMode>,
 )

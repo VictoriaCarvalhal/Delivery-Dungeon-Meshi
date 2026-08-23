@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: ddm-backend
+    runtime: node
+    region: oregon
+    rootDir: DDM-Backend
+    buildCommand: npm install && npx prisma generate
+    startCommand: npx prisma migrate deploy && node src/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_URL
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ddm-database
+          property: connectionString
+
+databases:
+  - name: ddm-database
+    plan: free
+    region: oregon
