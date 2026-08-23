@@ -193,19 +193,23 @@ app.put(`/pedidos/:id/quant`, async(req,res) => {
 
 // --- CARRINHOS ---
 
-app.post(`/carrinhos`, async (req, res) => {
+app.post('/carrinhos', async (req, res) => {
   try {
+    await prisma.carrinho.deleteMany();
+
     const result = await prisma.carrinho.create({
-      data: {},  // carrinho começa vazio
+      data: {},
       include: {
         pedido: true,
-      }
-    })
-    res.status(201).json(result)
+      },
+    });
+
+    res.status(201).json(result);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Erro ao criar carrinho' });
   }
-})
+});
 
 app.get(`/carrinhos`, async (req, res) => {
   try {
@@ -248,3 +252,4 @@ app.get(`/carrinhos/:id`, async (req, res) => {
     res.status(500).json({ error: 'Erro ao buscar carrinho' });
   }
 })
+
