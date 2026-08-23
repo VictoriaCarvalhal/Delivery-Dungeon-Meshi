@@ -16,14 +16,12 @@ export function PedidoProvider({ children }) {
     const [conta, setConta] = useState(0);
     const [loading, setLoading] = useState(false);
 
-    // Atualiza todos os estados a partir da resposta da API do carrinho
     function atualizarCarrinho(data) {
         setPedidos(data.pedido || []);
         setItems(data.num_items || 0);
         setConta(data.valor_total_carrinho || 0);
     }
 
-    // Cria um carrinho vazio no backend
     const inicializarCarrinho = useCallback(async () => {
         try {
             const res = await fetch(`${API_URL}/carrinhos`, {
@@ -39,7 +37,6 @@ export function PedidoProvider({ children }) {
         }
     }, []);
 
-    // Busca os pedidos do carrinho ativo no backend
     const fetchPedidos = useCallback(async (id) => {
         const carId = id || carrinhoId;
         if (!carId) return;

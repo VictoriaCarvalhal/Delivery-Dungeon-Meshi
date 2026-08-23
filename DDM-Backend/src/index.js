@@ -111,7 +111,6 @@ app.post(`/pedidos`, async(req,res) => {
   }
 
   try {
-    // Verifica se já existe um pedido com o mesmo prato nesse carrinho
     const pedidoExistente = await prisma.pedido.findFirst({
       where: { id_prato, id_carrinho },
     });
@@ -119,7 +118,6 @@ app.post(`/pedidos`, async(req,res) => {
     let result;
 
     if (pedidoExistente) {
-      // Se já existe, incrementa a quantidade
       result = await prisma.pedido.update({
         where: { id_pedido: pedidoExistente.id_pedido },
         data: {
@@ -128,7 +126,6 @@ app.post(`/pedidos`, async(req,res) => {
         include: { prato: true },
       });
     } else {
-      // Se não existe, cria um novo
       result = await prisma.pedido.create({
         data: { id_prato, id_carrinho, quant: quant || 1 },
         include: { prato: true },
