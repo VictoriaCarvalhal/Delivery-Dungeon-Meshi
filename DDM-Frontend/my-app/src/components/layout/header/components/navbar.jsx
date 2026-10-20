@@ -4,7 +4,6 @@ function Navbar() {
     return (
         <>
                 <div className={styles.navbar}>
-                    <Link to="/">Home</Link>
                     <Link to="/cardapio">Cardápio</Link>
                 </div>
         </>
